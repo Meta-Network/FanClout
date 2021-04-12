@@ -1,8 +1,8 @@
-import SvgIcon from '@/components/SvgIcon'// svg组件
+import svgIcon from '@/components/svgIcon'// svg组件
 
 export default function (app) {
   // register globally
-  app.component('svg-icon', SvgIcon)
+  app.component('svg-icon', svgIcon)
 
   const requireAll = requireContext => requireContext.keys().map(requireContext)
   const req = require.context('./svg', false, /\.svg$/)
