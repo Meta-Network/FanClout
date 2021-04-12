@@ -3,6 +3,7 @@
     FanClout
   </h1>
   <p>
+    <svg-icon icon-class="time" />
     {{ time }}
   </p>
   <el-button type="primary">{{ message }}</el-button>

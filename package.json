@@ -6,13 +6,15 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve",
-    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "svgo": "svgo -f src/icons/filter"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "element-plus": "^1.0.2-beta.28",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "svgo": "^2.3.0",
     "vue": "^3.0.0",
     "vue-i18n": "^9.1.0",
     "vue-router": "^4.0.0-0",
@@ -36,6 +38,7 @@
     "eslint-plugin-vue": "^7.0.0",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "svg-sprite-loader": "^6.0.5",
     "vue-cli-plugin-element-plus": "~0.0.13",
     "vue-cli-plugin-i18n": "~2.1.0"
   }
