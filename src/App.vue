@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Layout>
-      <template v-slot:title>
+      <template #title>
         {{ title }}
       </template>
-      <router-view/>
+      <router-view />
     </Layout>
   </div>
 </template>

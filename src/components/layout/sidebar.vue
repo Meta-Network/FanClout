@@ -1,14 +1,14 @@
 <template>
   <div class="sidebar">
-  <h3>
-    Search
-  </h3>
+    <h3>
+      Search
+    </h3>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'navigation',
+  name: 'Sidebar',
   components: {},
   data () {
     return {}
