@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Layout>
-      <template v-slot:title>
+      <template #title>
         {{ title }}
       </template>
-      <router-view/>
+      <router-view />
     </Layout>
   </div>
 </template>
@@ -39,6 +39,10 @@ export default {
 body {
   margin: 0;
   padding: 0;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
 }
 
 #app {

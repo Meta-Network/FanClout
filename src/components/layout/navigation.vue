@@ -1,14 +1,18 @@
 <template>
   <div class="nav">
-    <h3>
-      FanClout
-    </h3>
+    <div class="nav-fixed">
+      <div class="nav-inner">
+        <h3>
+          FanClout
+        </h3>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'navigation',
+  name: 'Navigation',
   components: {},
   data () {
     return {}
@@ -22,7 +26,17 @@ export default {
 
 <style lang="less" scoped>
 .nav {
-  padding: 0 10px;
-  box-sizing: border-box;
+  width: 245px;
+  &-fixed {
+    top: 0;
+    height: 100%;
+    position: fixed;
+  }
+  &-inner {
+    width: 245px;
+    overflow-y: auto;
+    height: 100%;
+    padding: 0 10px;
+  }
 }
 </style>

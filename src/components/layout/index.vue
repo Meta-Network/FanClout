@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="nav-shell">
-      <navigation />
+      <Navigation />
     </div>
     <div class="slot-shell">
       <div class="slot-shell-header">
@@ -12,20 +12,20 @@
       <slot />
     </div>
     <div class="sidebar-shell">
-      <sidebar />
+      <Sidebar />
     </div>
   </div>
 </template>
 
 <script>
-import navigation from './navigation'
-import sidebar from './sidebar'
+import Navigation from './navigation'
+import Sidebar from './sidebar'
 
 export default {
   name: 'Layout',
   components: {
-    navigation,
-    sidebar
+    Navigation,
+    Sidebar
   }
 }
 </script>
@@ -48,7 +48,8 @@ export default {
 
   .nav-shell {
     .shell();
-    width: 245px;
+    flex-grow: 1;
+    align-items: flex-end;
   }
 
   .slot-shell {
