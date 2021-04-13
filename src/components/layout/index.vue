@@ -48,7 +48,8 @@ export default {
 
   .nav-shell {
     .shell();
-    width: 245px;
+    flex-grow: 1;
+    align-items: flex-end;
   }
 
   .slot-shell {
