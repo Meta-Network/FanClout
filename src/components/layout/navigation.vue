@@ -5,15 +5,21 @@
         <h3>
           FanClout
         </h3>
+        <left-bar-button href="/" name="Home" />
+        <left-bar-button href="/about" name="About" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import LeftBarButton from '../leftBar/button'
+
 export default {
   name: 'Navigation',
-  components: {},
+  components: {
+    LeftBarButton
+  },
   data () {
     return {}
   },

@@ -6,6 +6,7 @@ import i18n from './i18n'
 import moment from 'moment'
 import installElementPlus from './plugins/element'
 import initSvgIcon from '@/icons'
+import './fonts/fonts.css'
 
 moment.locale('en-US')
 
