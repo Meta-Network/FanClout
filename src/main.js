@@ -19,4 +19,4 @@ initSvgIcon(app)
 moment.locale('en-US')
 app.config.globalProperties.$moment = moment
 
-app.use(i18n).use(i18n).use(store).use(router).mount('#app')
+app.use(i18n).use(store).use(router).mount('#app')
