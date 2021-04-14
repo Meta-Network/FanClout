@@ -57,6 +57,7 @@ export default {
     width: 602px;
     border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
+    background-color: #f8f8f8;
 
     &-header {
       height: 80px;
@@ -66,6 +67,7 @@ export default {
       align-items: center;
       padding: 0 20px;
       box-sizing: border-box;
+      background-color: white;
 
       h3 {
         font-size: 18px;
