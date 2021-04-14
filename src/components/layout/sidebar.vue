@@ -1,18 +1,14 @@
 <template>
   <div class="sidebar">
-    <el-input
-      v-model="searchValue"
-      class="sidebar-search-input"
-      placeholder="Search"
-      prefix-icon="el-icon-search"
-    />
+    <SearchBox class="sidebar-search-box" />
   </div>
 </template>
 
 <script>
+import SearchBox from '@/components/SearchBox'
 export default {
   name: 'Sidebar',
-  components: {},
+  components: { SearchBox },
   data () {
     return {
       searchValue: ''
@@ -30,13 +26,9 @@ export default {
   padding: 0 25px;
   box-sizing: border-box;
 
-  &-search-input {
+  &-search-box {
     margin: 25px 0 0 0;
     width: 100%;
-    /deep/.el-input__inner {
-      border-radius: 12px;
-      font-family: "Roboto Mono";
-    }
   }
 }
 </style>
