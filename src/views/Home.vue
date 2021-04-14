@@ -10,6 +10,7 @@
     <el-button type="primary">
       {{ message }}
     </el-button>
+    <p>{{ $t('i18n-message') }}</p>
   </div>
 </template>
 
