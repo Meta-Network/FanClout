@@ -1,8 +1,11 @@
 <template>
   <div class="sidebar">
-    <h3>
-      Search
-    </h3>
+    <el-input
+      v-model="searchValue"
+      class="sidebar-search-input"
+      placeholder="Search"
+      prefix-icon="el-icon-search"
+    />
   </div>
 </template>
 
@@ -11,7 +14,9 @@ export default {
   name: 'Sidebar',
   components: {},
   data () {
-    return {}
+    return {
+      searchValue: ''
+    }
   },
   computed: {},
   watch: {},
@@ -22,7 +27,16 @@ export default {
 
 <style lang="less" scoped>
 .sidebar {
-  padding: 0 10px;
+  padding: 0 25px;
   box-sizing: border-box;
+
+  &-search-input {
+    margin: 25px 0 0 0;
+    width: 100%;
+    /deep/.el-input__inner {
+      border-radius: 12px;
+      font-family: "Roboto Mono";
+    }
+  }
 }
 </style>
