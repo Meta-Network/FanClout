@@ -79,7 +79,7 @@ export default {
 
   .sidebar-shell {
     .shell();
-    flex: 1;
+    flex: 2;
   }
 }
 </style>

@@ -1,17 +1,18 @@
 <template>
   <div class="sidebar">
-    <h3>
-      Search
-    </h3>
+    <SearchBox class="sidebar-search-box" />
   </div>
 </template>
 
 <script>
+import SearchBox from '@/components/SearchBox'
 export default {
   name: 'Sidebar',
-  components: {},
+  components: { SearchBox },
   data () {
-    return {}
+    return {
+      searchValue: ''
+    }
   },
   computed: {},
   watch: {},
@@ -22,7 +23,12 @@ export default {
 
 <style lang="less" scoped>
 .sidebar {
-  padding: 0 10px;
+  padding: 0 25px;
   box-sizing: border-box;
+
+  &-search-box {
+    margin: 25px 0 0 0;
+    width: 100%;
+  }
 }
 </style>
