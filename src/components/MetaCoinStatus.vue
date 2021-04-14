@@ -5,7 +5,7 @@
       <span class="meta-status-text-dark">~${{ price }} <span class="meta-status-text-light">USD per coin</span></span>
     </div>
     <div class="meta-status-user-meta">
-      <span class="meta-status-text-dark">Your Meta</span>
+      <span class="meta-status-text-dark">Your $Meta</span>
       <span class="meta-status-text-dark">{{ userMeta }} <span class="meta-status-text-light"> ≈ ${{ equalsUSD }} USD</span></span>
     </div>
   </div>
@@ -14,7 +14,7 @@
 export default {
   data () {
     return {
-      price: '1000',
+      price: '60000',
       userMeta: '1'
     }
   },
@@ -43,6 +43,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
   }
   &-text-dark {
     color: #555;
