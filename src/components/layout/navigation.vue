@@ -2,9 +2,7 @@
   <div class="nav">
     <div class="nav-fixed">
       <div class="nav-inner">
-        <h3>
-          FanClout
-        </h3>
+        <logo />
         <left-bar-button href="/" name="Home" />
         <left-bar-button href="/about" name="About" />
       </div>
@@ -14,11 +12,13 @@
 
 <script>
 import LeftBarButton from '../leftBar/button'
+import Logo from '../leftBar/logo'
 
 export default {
   name: 'Navigation',
   components: {
-    LeftBarButton
+    LeftBarButton,
+    Logo
   },
   data () {
     return {}
