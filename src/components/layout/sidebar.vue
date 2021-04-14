@@ -2,15 +2,17 @@
   <div class="sidebar">
     <SearchBox class="sidebar-search-box" />
     <MetaCoinStatus class="sidebar-meta-coin-status" />
+    <TopWeeklyCreators class="sidebar-top-weekly-creators" />
   </div>
 </template>
 
 <script>
 import SearchBox from '@/components/SearchBox'
 import MetaCoinStatus from '@/components/MetaCoinStatus'
+import TopWeeklyCreators from '@/components/TopWeeklyCreators'
 export default {
   name: 'Sidebar',
-  components: { MetaCoinStatus, SearchBox },
+  components: { TopWeeklyCreators, MetaCoinStatus, SearchBox },
   data () {
     return {
       searchValue: ''
@@ -34,6 +36,10 @@ export default {
   }
 
   &-meta-coin-status {
+    margin: 25px 0 0 0;
+  }
+
+  &-top-weekly-creators {
     margin: 25px 0 0 0;
   }
 }

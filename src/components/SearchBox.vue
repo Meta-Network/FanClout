@@ -16,8 +16,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-/deep/.el-input__inner {
+/deep/ .el-input__inner {
   border-radius: 12px;
+  font-size: 15px;
+  color: #6c757d;
   font-family: "Roboto Mono";
+  &:focus {
+    border-color: #DCDFE6;
+  }
+  &:hover {
+    border-color: #DCDFE6;
+  }
 }
+
 </style>
