@@ -1,14 +1,16 @@
 <template>
   <div class="sidebar">
     <SearchBox class="sidebar-search-box" />
+    <MetaCoinStatus class="sidebar-meta-coin-status" />
   </div>
 </template>
 
 <script>
 import SearchBox from '@/components/SearchBox'
+import MetaCoinStatus from '@/components/MetaCoinStatus'
 export default {
   name: 'Sidebar',
-  components: { SearchBox },
+  components: { MetaCoinStatus, SearchBox },
   data () {
     return {
       searchValue: ''
@@ -29,6 +31,10 @@ export default {
   &-search-box {
     margin: 25px 0 0 0;
     width: 100%;
+  }
+
+  &-meta-coin-status {
+    margin: 25px 0 0 0;
   }
 }
 </style>
