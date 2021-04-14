@@ -19,7 +19,8 @@
     "vue": "^3.0.0",
     "vue-i18n": "^9.1.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "xss": "^1.0.8"
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^2.1.0",
