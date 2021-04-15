@@ -7,6 +7,7 @@ import moment from 'moment'
 import installElementPlus from './plugins/element'
 import initSvgIcon from '@/icons'
 import utils from '@/utils/utils'
+import API from '@/api/API'
 import ossProcess from '@/utils/oss_process'
 import './fonts/fonts.css'
 
@@ -25,4 +26,5 @@ app.config.globalProperties.$utils = utils
 
 app.config.globalProperties.$ossProcess = ossProcess
 
+app.config.globalProperties.$API = API
 app.use(i18n).use(store).use(router).mount('#app')
