@@ -2,12 +2,13 @@
   <div class="sidebar">
     <SearchBox class="sidebar-search-box" />
     <MetaCoinStatus class="sidebar-meta-coin-status" />
-    <RightBarLogIn class="sidebar-login" />
+    <RightBarLogIn class="sidebar-login" v-if="!isLoggedIn" />
     <TopWeeklyCreators class="sidebar-top-weekly-creators" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import SearchBox from '@/components/SearchBox'
 import MetaCoinStatus from '@/components/MetaCoinStatus'
 import TopWeeklyCreators from '@/components/TopWeeklyCreators'
@@ -21,7 +22,12 @@ export default {
       searchValue: ''
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(['userInfo']),
+    isLoggedIn () {
+      return this.userInfo && this.userInfo.id !== -1
+    }
+  },
   watch: {},
   mounted () {},
   methods: {}
