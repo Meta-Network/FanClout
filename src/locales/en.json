@@ -7,5 +7,6 @@
     "unsupportedStausType": "Unsupported staus type: {0}"
   },
   "right-bar-login-welcome": "Welcome to FanClout!",
-  "log-in": "Log In"
+  "log-in": "Log In",
+  "log-out": "Log Out"
 }
