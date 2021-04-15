@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Home from '../views/Home.vue'
+import shareId from '../views/share/_id'
+import userId from '../views/user/_id'
 
 /**
  * @type { import('vue-router').RouteRecordRaw[] }
@@ -22,6 +25,16 @@ const routes = [
     path: '/oauth',
     name: 'OAuth',
     component: () => import('../views/OAuth.vue')
+  },
+  {
+    path: '/status/:id',
+    name: 'share-id',
+    component: shareId
+  },
+  {
+    path: '/user/:id',
+    name: 'user-id',
+    component: userId
   }
 ]
 

@@ -1,5 +1,9 @@
 {
   "i18n-message": "你好 i18n！",
   "redirecting": "正在重定向……",
-  "oauth-fail": "登录失败，请重试或联系 Matataki 管理员！"
+  "oauth-fail": "登录失败，请重试或联系 Matataki 管理员！",
+  "viewMore": "查看更多",
+  "home": {
+    "unsupportedStausType": "不支持的动态类型: {0}"
+  }
 }
