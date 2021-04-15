@@ -20,6 +20,9 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+import store from 'store2'
+import { KEY_ACCESS_TOKEN, KEY_ACCESS_TOKEN_INFO } from '../constants'
 import mttkCard from '@/components/statusCard/mttk'
 
 import testData from '@/testData.json'
@@ -38,6 +41,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['userInfo']),
     time () {
       return this.$moment().format('YYYY-MM-DD HH:mm:ss')
     }
@@ -45,8 +49,10 @@ export default {
   mounted () {
     this.setTitle('Home')
     this.loadMore()
+    this.autoLogin()
   },
   methods: {
+    ...mapActions(['refreshUserData']),
     /** 模拟数据获取 */
     getHomeStatus () {
       return new Promise((resolve) => {
@@ -85,6 +91,23 @@ export default {
       } catch (e) {
         console.warn('转换动态列表 JSON 时出现错误：', e)
         return null
+      }
+    },
+    async autoLogin () {
+      try {
+        const accessToken = store.get(KEY_ACCESS_TOKEN)
+        if (accessToken) {
+        /**
+         * @type { import('../utils').JWTInfo }
+         */
+          const accessInfo = store.get(KEY_ACCESS_TOKEN_INFO)
+          if (accessInfo.exp > Date.now()) {
+            await this.refreshUserData()
+            console.log('Can login!')
+          }
+        }
+      } catch (error) {
+        console.error(error)
       }
     }
   }

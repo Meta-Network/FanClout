@@ -5,5 +5,8 @@
   "viewMore": "查看更多",
   "home": {
     "unsupportedStausType": "不支持的动态类型: {0}"
-  }
+  },
+  "right-bar-login-welcome": "欢迎来到 FanClout！",
+  "log-in": "登 录",
+  "log-out": "登 出"
 }

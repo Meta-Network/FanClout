@@ -17,18 +17,28 @@ export default {
     }
   },
   mounted () {
-    try {
-      const { token, path } = this.$route.query
-      if (token) {
-        store.set(KEY_ACCESS_TOKEN, token)
-        store.set(KEY_ACCESS_TOKEN_INFO, disassembleJWT(token))
-        this.$router.push(path || '/')
-      } else {
+    this.oAuthRedirect()
+  },
+  methods: {
+    oAuthRedirect () {
+      try {
+        const { token, path } = this.$route.query
+        if (token) {
+          store.set(KEY_ACCESS_TOKEN, token)
+          store.set(KEY_ACCESS_TOKEN_INFO, disassembleJWT(token))
+          setTimeout(() => {
+            this.redirectToPath(path)
+          }, 3000)
+        } else {
+          this.oauthFail = true
+        }
+      } catch (error) {
         this.oauthFail = true
+        console.error(error)
       }
-    } catch (error) {
-      this.oauthFail = true
-      console.error(error)
+    },
+    redirectToPath (path) {
+      this.$router.push(path || '/')
     }
   }
 }

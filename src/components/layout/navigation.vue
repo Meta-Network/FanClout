@@ -3,6 +3,7 @@
     <div class="nav-fixed">
       <div class="nav-inner">
         <logo />
+        <UserInfoBar class="nav-user-info" />
         <left-bar-button href="/" name="Home" />
         <left-bar-button href="/about" name="About" />
       </div>
@@ -13,12 +14,14 @@
 <script>
 import LeftBarButton from '../leftBar/button'
 import Logo from '../leftBar/logo'
+import UserInfoBar from '../UserInfoBar'
 
 export default {
   name: 'Navigation',
   components: {
     LeftBarButton,
-    Logo
+    Logo,
+    UserInfoBar
   },
   data () {
     return {}
@@ -43,6 +46,10 @@ export default {
     overflow-y: auto;
     height: 100%;
     padding: 0 10px;
+  }
+  &-user-info {
+    margin-left: 30px;
+    margin-right: 15px;
   }
 }
 </style>
