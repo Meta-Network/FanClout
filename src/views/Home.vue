@@ -15,6 +15,9 @@
 </template>
 
 <script>
+import store from 'store2'
+import { KEY_ACCESS_TOKEN, KEY_ACCESS_TOKEN_INFO } from '../constants'
+
 export default {
   name: 'Home',
   inject: ['setTitle'],
@@ -31,6 +34,21 @@ export default {
   },
   mounted () {
     this.setTitle('Home')
+
+    try {
+      const accessToken = store.get(KEY_ACCESS_TOKEN)
+      if (accessToken) {
+        /**
+         * @type { import('../utils').JWTInfo }
+         */
+        const accessInfo = store.get(KEY_ACCESS_TOKEN_INFO)
+        if (accessInfo.exp > Date.now()) {
+          console.log('Can login!')
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 </script>
