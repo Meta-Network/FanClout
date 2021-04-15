@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 // import { Loading } from 'element-ui'
-import { Message } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { getCookie, removeCookie, clearAllCookie } from '@/utils/cookie'
 import store from '@/utils/store.js'
 
@@ -50,8 +50,8 @@ _axios.interceptors.response.use(
   (response) => {
     // if(loadingInstance) loadingInstance.close();
     if (response.status === 429) {
-      Message.closeAll()
-      Message({
+      ElMessage.closeAll()
+      ElMessage({
         message: '发文频繁，请稍后重试',
         type: 'error'
       })
@@ -64,8 +64,8 @@ _axios.interceptors.response.use(
 
     if (error.message.includes('status code 401')) {
       console.log('登录状态异常,请重新登录')
-      // Message.closeAll()
-      // Message({
+      // ElMessage.closeAll()
+      // ElMessage({
       //   message: '登录状态异常,请重新登录',
       //   type: 'error'
       // })
@@ -97,15 +97,15 @@ _axios.interceptors.response.use(
 
     // 超时处理
     if (error.message.includes('timeout')) {
-      Message.closeAll()
-      Message({
+      ElMessage.closeAll()
+      ElMessage({
         message: '请求超时',
         type: 'error'
       })
     }
     if (error.message.includes('Network Error')) {
-      // Message.closeAll()
-      // Message({
+      // ElMessage.closeAll()
+      // ElMessage({
       //   message: '网络错误',
       //   type: 'error'
       // })
