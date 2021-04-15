@@ -1,6 +1,5 @@
 {
   "i18n-message": "hello i18n !!",
-  "home": {
-    "unsupportedStausType": "Unsupported staus type: {0}"
-  }
+  "redirecting": "Redirecting...",
+  "oauth-fail": "Login failed, please try again or contact the Matataki administrator!"
 }
