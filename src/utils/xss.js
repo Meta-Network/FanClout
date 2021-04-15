@@ -279,7 +279,7 @@ export const xssFilter = html => {
 // 通过xss处理图片
 export const xssImageProcess = html => {
   const isSelfOss = url => {
-    const oss = process.env.ssImgAddress
+    const oss = process.env.VUE_APP_SS_IMG_URL
     return new RegExp(oss).test(url)
   }
 
