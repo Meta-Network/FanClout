@@ -11,8 +11,7 @@
         />
         <!-- 未知平台 -->
         <div v-else class="home-list-item item-warning" :key="index + '-unsupportedStausType'">
-          <!-- {{ $t('home.unsupportedStausType', [item ? item.platform : 'unknown']) }} -->
-          Unsupported staus type: {{ item ? item.platform : 'unknown' }}<br>
+          {{ $t('home.unsupportedStausType', [item ? item.platform : 'unknown']) }}<br>
           ID: {{ item ? item.id : 'unknown' }}
         </div>
       </template>
