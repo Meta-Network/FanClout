@@ -11,15 +11,16 @@
       class="img-lazy"
       alt="avatar"
     >
-      <div
-        slot="error"
-        class="image-slot"
-      >
-        <i
-          :style="{ 'font-size': `calc(${ size } * 0.7)` }"
-          class="el-icon-user-solid"
-        />
-      </div>
+      <template #error>
+        <div
+          class="image-slot"
+        >
+          <i
+            :style="{ 'font-size': `calc(${ size } * 0.7)` }"
+            class="el-icon-user-solid"
+          />
+        </div>
+      </template>
     </el-image>
   </div>
 </template>
@@ -37,7 +38,7 @@ export default {
       default: '1rem'
     }
   },
-  data() {
+  data () {
     return {
     }
   }

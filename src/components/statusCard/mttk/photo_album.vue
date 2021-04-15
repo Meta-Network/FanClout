@@ -209,6 +209,7 @@
 </template>
 
 <script>
+import { reactive } from 'vue'
 
 export default {
   components: {
@@ -228,7 +229,7 @@ export default {
     return {
       showSensitive: false,
       gifSize: 320,
-      mediaPlays: []
+      mediaPlays: reactive([])
     }
   },
   computed: {
@@ -244,11 +245,10 @@ export default {
     previewUrls () {
       try {
         return this.media.map((item, index) => {
-          // let xOssProcess = '?x-oss-process=image/resize,l_680,m_mfit/format,jpg'
-          // if (item.type === 'image/gif' && this.mediaPlays[index]) { xOssProcess = '?x-oss-process=image/resize,l_680,m_mfit' }
+          let xOssProcess = '?x-oss-process=image/resize,l_680,m_mfit/format,jpg'
+          if (item.type === 'image/gif' && this.mediaPlays[index]) { xOssProcess = '?x-oss-process=image/resize,l_680,m_mfit' }
 
-          // return this.$API.getImg(item.url) + xOssProcess
-          return 'https://picsum.photos/seed/picsum/200/300'
+          return this.$API.getImg(item.url) + xOssProcess
         })
       } catch (e) {
         console.error('[Unable to display picture]:', e)
@@ -275,11 +275,11 @@ export default {
     },
     playGif (index) {
       if (this.media[index].type !== 'image/gif') return
-      this.$set(this.mediaPlays, index, true)
+      this.mediaPlays[index] = true
     },
     stopGif (index) {
       if (this.media[index].type !== 'image/gif') return
-      this.$set(this.mediaPlays, index, false)
+      this.mediaPlays[index] = false
     },
     getImgList (index) {
       const imgs = [...this.imgUrls]

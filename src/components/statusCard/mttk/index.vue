@@ -22,12 +22,16 @@
           :to="{name: 'user-id', params: {id: card && card.uid}}"
           target="_blank"
         >
-          <c-user-popover :user-id="Number(card && card.uid)">
+          <!-- <c-user-popover :user-id="Number(card && card.uid)">
             <c-avatar
               class="cardunit-l-avatar"
               :src="avatarImg"
             />
-          </c-user-popover>
+          </c-user-popover> -->
+          <c-avatar
+            class="cardunit-l-avatar"
+            :src="avatarImg"
+          />
         </router-link>
       </div>
       <!-- 卡片右侧 -->
