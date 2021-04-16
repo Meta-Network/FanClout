@@ -1,11 +1,35 @@
 <template>
   <div class="leftbar-button">
-    <router-link class="leftbar__dot leftbar__dot-inactive" :to="href" active-class="leftbar__dot-active">
+    <a
+      class="leftbar__dot leftbar__dot-inactive"
+      :href="href"
+      target="_blank"
+      rel="noopener noreferrer"
+      v-if="external"
+    >.</a>
+    <router-link
+      class="leftbar__dot leftbar__dot-inactive"
+      :to="href"
+      active-class="leftbar__dot-active"
+      v-else
+    >
       .
     </router-link>
     <div class="leftbar__flex">
-      <router-link class="leftbar__text leftbar__text-inactive" :to="href" active-class="leftbar__text-active">
-        {{ name }}
+      <a
+        class="leftbar__text leftbar__text-inactive"
+        :href="href"
+        target="_blank"
+        rel="noopener noreferrer"
+        v-if="external"
+      ><slot /></a>
+      <router-link
+        class="leftbar__text leftbar__text-inactive"
+        :to="href"
+        active-class="leftbar__text-active"
+        v-else
+      >
+        <slot />
       </router-link>
     </div>
   </div>
@@ -19,9 +43,10 @@ export default {
       type: String,
       required: true
     },
-    name: {
-      type: String,
-      required: true
+    external: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
@@ -34,6 +59,11 @@ export default {
     width: 100%;
     padding-top: 15px;
     padding-left: 15px;
+    &:hover {
+      .leftbar__dot {
+        color: #0058f7 !important;
+      }
+    }
   }
   &__dot {
     font-size: 50px;

@@ -4,8 +4,15 @@
       <div class="nav-inner">
         <logo />
         <UserInfoBar class="nav-user-info" />
-        <left-bar-button href="/" name="Home" />
-        <left-bar-button href="/about" name="About" />
+        <left-bar-button href="/">
+          {{ $t('nav-home') }}
+        </left-bar-button>
+        <left-bar-button external href="https://app.unisave.exchange/#/swap?inputCurrency=0xe9e7cea3dedca5984780bafc599bd69add087d56&outputCurrency=0xebd31fd3e751b19b745e64b6422ef195b7015cc4">
+          {{ $t('nav-buy-meta') }}
+        </left-bar-button>
+        <left-bar-button href="/about">
+          {{ $t('nav-about') }}
+        </left-bar-button>
       </div>
     </div>
   </div>
