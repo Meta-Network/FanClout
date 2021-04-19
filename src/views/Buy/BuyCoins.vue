@@ -10,13 +10,14 @@
       >
         <el-table-column
           prop="name"
-          label="name">
+          label="name"
+        >
           <template #default="scope">
             <div class="name-container">
-                <el-avatar :size="40" src="https://pbs.twimg.com/profile_images/1273450418895376385/kIXRS_tA_400x400.jpg"></el-avatar>
-              <div class="name">
-                {{scope.row.name}}
-              </div>
+              <el-avatar :size="40" :src="scope.row.avatar" />
+              <el-button type="text" class="name" @click="BuyCoinsUrl(scope.row)">
+                {{ scope.row.name }}
+              </el-button>
             </div>
           </template>
         </el-table-column>
@@ -31,7 +32,9 @@
               </div>
               <el-button
                 size="small"
+                type="primary"
                 class="BuyButton"
+                @click="BuyCoinsUrl(scope.row)"
               >
                 Buy
               </el-button>
@@ -52,14 +55,26 @@ export default {
     const coinsData = ref([
       {
         name: 'test',
-        price: 'test'
+        price: 'test',
+        avatar: 'https://pbs.twimg.com/profile_images/1273450418895376385/kIXRS_tA_400x400.jpg'
+        // 示例//
+      },
+      {
+        name: 'test',
+        price: 'test',
+        avatar: 'https://pbs.twimg.com/profile_images/1273450418895376385/kIXRS_tA_400x400.jpg'
+        // 示例//
       }
     ])
     onMounted(() => {
       setTitle('Buy Contributors Coin')
     })
+    const BuyCoinsUrl = (row) => {
+      console.log(row)
+    } // 跳转//
     return {
-      coinsData
+      coinsData,
+      BuyCoinsUrl
     }
   }
 
@@ -78,7 +93,8 @@ export default {
   display: flex;
   font-size: 15px;
   align-items:center;
-  padding: 0 10px 0 0;
+  padding: 0 20px 0 0;
+  font-family: 'Roboto Mono', monospace;
 }
 .name-container{
   display: flex;
@@ -89,10 +105,21 @@ export default {
   align-items: center;
   font-size: 15px;
   font-family: 'Roboto Mono', monospace;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 20px;
+  color: #606266;
 }
 .BuyButton{
   display: flex;
   align-items: center;
+  background-color: #005bff;
+  border-color: #005bff;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border-radius: 12px;
 }
+.BuyButton:hover{
+  color: #fff;
+  background-color: #004bd1;
+  border-color: #0047c4;
+}
+
 </style>
