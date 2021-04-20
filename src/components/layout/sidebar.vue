@@ -36,8 +36,11 @@ export default {
 
 <style lang="less" scoped>
 .sidebar {
-  padding: 0 25px;
+  padding: 0 20px;
   box-sizing: border-box;
+  top: 0;
+  height: 100%;
+  position: fixed;
 
   &-search-box {
     margin: 25px 0 0 0;

@@ -139,6 +139,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import useClipboard from 'vue-clipboard3'
+import { ElMessage } from 'element-plus'
+import i18n from '@/i18n'
 import mainText from './main_text'
 import photoAlbum from './photo_album'
 import references from './references'
@@ -154,6 +157,21 @@ export default {
     data: {
       type: Object,
       required: true
+    }
+  },
+  setup () {
+    const global = i18n.global
+    const { toClipboard } = useClipboard
+    const copyCode = async function (text) {
+      try {
+        await toClipboard(text)
+        ElMessage.success(global.t('success.copy'))
+      } catch (err) {
+        ElMessage.error(global.t('error.copy'))
+      }
+    }
+    return {
+      copyCode
     }
   },
   data () {
@@ -264,22 +282,6 @@ export default {
     refPush () {
       if (!this.isLogined) return this.$store.commit('setLoginModal', true)
       this.$emit('ref-push', this.getShareLink())
-    },
-    // 拷贝
-    copyCode (code) {
-      console.log(code)
-      this.$copyText(code).then(
-        () => {
-          this.$message({
-            showClose: true,
-            message: this.$t('success.copy'),
-            type: 'success'
-          })
-        },
-        () => {
-          this.$message({ showClose: true, message: this.$t('error.copy'), type: 'error' })
-        }
-      )
     }
   }
 }

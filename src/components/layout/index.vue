@@ -48,7 +48,7 @@ export default {
 
   .nav-shell {
     .shell();
-    flex-grow: 1;
+    width: 245px;
     align-items: flex-end;
   }
 
@@ -82,7 +82,6 @@ export default {
   .sidebar-shell {
     .shell();
     flex: 1;
-    min-width: 400px;
   }
 }
 </style>

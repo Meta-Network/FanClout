@@ -3,6 +3,7 @@
   "redirecting": "Redirecting...",
   "oauth-fail": "Login failed, please try again or contact the Matataki administrator!",
   "viewMore": "View More",
+  "hideMore": "Hide",
   "home": {
     "unsupportedStausType": "Unsupported staus type: {0}"
   },
@@ -12,5 +13,11 @@
   "nav-home": "Home",
   "nav-about": "About",
   "nav-buy-meta": "Buy MetaBeta",
-  "nav-contributors": "Buy Contributors Coin"
+  "nav-contributors": "Buy Contributors Coin",
+  "success": {
+    "copy": "Copy successfully"
+  },
+  "error": {
+    "copy": "Copy failed"
+  }
 }
