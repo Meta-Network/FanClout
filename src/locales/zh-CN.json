@@ -13,5 +13,11 @@
   "nav-home": "主页",
   "nav-about": "关于",
   "nav-buy-meta": "购买 MetaBeta",
-  "nav-contributors": "购买贡献者币"
+  "nav-contributors": "购买贡献者币",
+  "success": {
+    "copy": "复制成功"
+  },
+  "error": {
+    "copy": "复制失败"
+  }
 }
