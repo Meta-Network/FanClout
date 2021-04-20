@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-/deep/ .el-input__inner {
+::v-deep(.el-input__inner) {
   border-radius: 12px;
   font-size: 15px;
   color: #6c757d;
