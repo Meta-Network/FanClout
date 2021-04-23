@@ -106,7 +106,7 @@ export default {
   },
   setup () {
     const global = i18n.global
-    const { toClipboard } = useClipboard
+    const { toClipboard } = useClipboard()
     const copyCode = async function (text) {
       try {
         await toClipboard(text)
@@ -187,6 +187,7 @@ export default {
     justify-content: center;
     z-index: 1;
     cursor: pointer;
+
     .icon {
       font-size: 14px;
     }

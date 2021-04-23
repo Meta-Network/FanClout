@@ -139,5 +139,9 @@ export default {
     if (/^localhost.*/.test(determinator)) return 'dev'
     if (/(www)?test/.test(determinator)) return 'test'
     return 'main'
+  },
+
+  getLocalUrl() {
+    return window.location.origin + window.location.pathname
   }
 };

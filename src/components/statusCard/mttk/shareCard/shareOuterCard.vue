@@ -79,7 +79,7 @@ export default {
   },
   setup () {
     const global = i18n.global
-    const { toClipboard } = useClipboard
+    const { toClipboard } = useClipboard()
     const copyCode = async function (text) {
       try {
         await toClipboard(text)

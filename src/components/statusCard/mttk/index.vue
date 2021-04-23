@@ -161,12 +161,13 @@ export default {
   },
   setup () {
     const global = i18n.global
-    const { toClipboard } = useClipboard
-    const copyCode = async function (text) {
+    const { toClipboard } = useClipboard()
+    const copyCode = async (text) => {
       try {
         await toClipboard(text)
         ElMessage.success(global.t('success.copy'))
       } catch (err) {
+        console.error(err)
         ElMessage.error(global.t('error.copy'))
       }
     }
