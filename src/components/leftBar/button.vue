@@ -58,7 +58,6 @@ export default {
     display: flex;
     width: 100%;
     padding-top: 15px;
-    padding-left: 15px;
     &:hover {
       .leftbar__dot {
         color: #0058f7 !important;

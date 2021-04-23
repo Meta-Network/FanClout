@@ -33,11 +33,11 @@ export default {
 <style lang="less" scoped>
 .layout {
   width: 100%;
-  max-width: 1220px;
+  max-width: 1240px;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  padding: 0 10px;
+  padding: 0;
   margin: 0 auto;
 
   .shell {
@@ -48,7 +48,7 @@ export default {
 
   .nav-shell {
     .shell();
-    width: 245px;
+    width: 265px;
     align-items: flex-end;
   }
 

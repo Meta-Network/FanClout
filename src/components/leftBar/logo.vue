@@ -28,7 +28,7 @@ export default {
     font-weight: normal;
     line-height: 1;
     margin-bottom: 3px;
-    margin-left: 42px;
+    margin-left: 27px;
   }
 }
 </style>

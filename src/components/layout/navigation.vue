@@ -45,21 +45,21 @@ export default {
 
 <style lang="less" scoped>
 .nav {
-  width: 245px;
+  width: 265px;
   &-fixed {
     top: 0;
     height: 100%;
     position: fixed;
   }
   &-inner {
-    width: 245px;
+    width: 265px;
     overflow-y: auto;
     height: 100%;
-    padding: 0 10px;
+    padding: 0 20px;
   }
   &-user-info {
-    margin-left: 30px;
-    margin-right: 15px;
+    margin-left: 15px;
+    margin-right: 0;
   }
 }
 </style>
