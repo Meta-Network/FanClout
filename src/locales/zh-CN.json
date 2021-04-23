@@ -18,6 +18,9 @@
     "copy": "复制成功"
   },
   "error": {
-    "copy": "复制失败"
-  }
+    "fail": "失败",
+    "copy": "复制失败",
+    "pleaseLogin": "请先登录"
+  },
+  "likeSuccess": "点赞成功"
 }
