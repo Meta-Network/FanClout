@@ -18,6 +18,9 @@
     "copy": "Copy successfully"
   },
   "error": {
-    "copy": "Copy failed"
-  }
+    "fail": "failure",
+    "copy": "Copy failed",
+    "pleaseLogin": "Please log in first"
+  },
+  "likeSuccess": "Like success"
 }
