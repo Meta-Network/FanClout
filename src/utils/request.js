@@ -2,8 +2,8 @@
 import axios from 'axios'
 // import { Loading } from 'element-ui'
 import { ElMessage } from 'element-plus'
-import { getCookie, removeCookie, clearAllCookie } from '@/utils/cookie'
 import store from '@/utils/store.js'
+import { KEY_ACCESS_TOKEN } from '../constants'
 
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
@@ -33,8 +33,10 @@ _axios.interceptors.request.use(
     // 客户端执行
     if (process.browser) {
       console.log('客户端执行')
-      if (getCookie('ACCESS_TOKEN')) {
-        config.headers['x-access-token'] = getCookie('ACCESS_TOKEN')
+      const accessToken = store.get(KEY_ACCESS_TOKEN)
+      console.log('accessToken', accessToken)
+      if (accessToken) {
+        config.headers['x-access-token'] = accessToken
       }
     }
     return config
@@ -63,43 +65,16 @@ _axios.interceptors.response.use(
     console.log('axios interceptors response error', error)
 
     if (error.message.includes('status code 401')) {
-      console.log('登录状态异常,请重新登录')
-      // ElMessage.closeAll()
-      // ElMessage({
-      //   message: '登录状态异常,请重新登录',
-      //   type: 'error'
-      // })
-
-      if (process.browser && window && window.$nuxt) {
-        // window.$nuxt.$store.commit('setLoginModal', true)
-
-        try {
-          // 重置all store
-          window.$nuxt.$store.dispatch('resetAllStore')
-            .then(() => {
-              clearAllCookie()
-              // 防止没有清除干净
-              removeCookie('ACCESS_TOKEN')
-              removeCookie('idProvider')
-              removeCookie('referral')
-              store.clear()
-              sessionStorage.clear()
-            }).catch(err => {
-              console.log(err)
-              removeCookie('ACCESS_TOKEN')
-            })
-        } catch (e) {
-          console.log(e)
-          removeCookie('ACCESS_TOKEN')
-        }
-      }
+      console.warn('登录状态异常,请重新登录')
+      store.remove(KEY_ACCESS_TOKEN)
     }
 
     // 超时处理
     if (error.message.includes('timeout')) {
+      console.error('Request timed out 请求超时')
       ElMessage.closeAll()
       ElMessage({
-        message: '请求超时',
+        message: 'Request timed out 请求超时',
         type: 'error'
       })
     }
@@ -109,7 +84,7 @@ _axios.interceptors.response.use(
       //   message: '网络错误',
       //   type: 'error'
       // })
-      console.log('Network Error')
+      console.error('Network Error 网络错误')
     }
     // loadingInstance.close()
     return Promise.reject(error)
