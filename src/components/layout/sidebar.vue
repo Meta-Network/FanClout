@@ -39,8 +39,7 @@ export default {
   padding: 0 20px;
   box-sizing: border-box;
   top: 0;
-  height: 100%;
-  position: fixed;
+  position: sticky;
 
   &-search-box {
     margin: 25px 0 0 0;
