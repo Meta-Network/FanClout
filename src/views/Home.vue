@@ -50,6 +50,7 @@ export default {
     this.setTitle('Home')
     this.loadMore()
     this.autoLogin()
+    this.getUserState()
   },
   methods: {
     ...mapActions(['refreshUserData']),
@@ -109,6 +110,10 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    async getUserState () {
+      const res = await this.$API.getMyUserData()
+      console.log('getMyUserData:', res)
     }
   }
 }
