@@ -4,10 +4,10 @@
       <span class="meta-status-text-dark">{{ $t('meta-price') }}</span>
       <span class="meta-status-text-dark">~${{ price }} <span class="meta-status-text-light">{{ $t('usd-per-coin') }}</span></span>
     </div>
-    <div class="meta-status-user-meta">
+    <!-- <div class="meta-status-user-meta">
       <span class="meta-status-text-dark">{{ $t('your-meta') }}</span>
       <span class="meta-status-text-dark">{{ userMeta }} <span class="meta-status-text-light"> ≈ ${{ equalsUSD }} {{ $t('usd') }}</span></span>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -25,9 +25,9 @@ export default {
     }
   },
   computed: {
-    equalsUSD () {
-      return this.price * this.userMeta
-    }
+    // equalsUSD () {
+    //   return this.price * this.userMeta
+    // }
   }
 }
 </script>
