@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="home-list" v-loading="loading">
+    <div class="home-list">
       <template v-for="(item, index) of homeList">
         <!-- Matataki 动态卡片 -->
         <mttkCard
@@ -15,6 +15,13 @@
           ID: {{ item ? item.id : 'unknown' }}
         </div>
       </template>
+      <infiniteScroll
+        :no-data="!homeList || !homeList.length"
+        :loading="loading"
+        :distance="40"
+        :disable="!hasNextPage"
+        @load="loadMore"
+      />
     </div>
   </div>
 </template>
@@ -24,20 +31,23 @@ import { mapState, mapActions } from 'vuex'
 import store from 'store2'
 import { KEY_ACCESS_TOKEN, KEY_ACCESS_TOKEN_INFO } from '../constants'
 import mttkCard from '@/components/statusCard/mttk'
+import infiniteScroll from '@/components/InfiniteScroll'
 
 import testData from '@/testData.json'
 
 export default {
   name: 'Home',
   components: {
-    mttkCard
+    mttkCard,
+    infiniteScroll
   },
   inject: ['setTitle'],
   data () {
     return {
-      loading: false,
+      loading: true,
       homeList: [],
-      homeCount: 0
+      homeCount: 0,
+      hasNextPage: true
     }
   },
   computed: {
@@ -48,17 +58,26 @@ export default {
   },
   mounted () {
     this.setTitle('Home')
-    this.loadMore()
     this.autoLogin()
-    this.getUserState()
+    // this.getUserState()
   },
   methods: {
     ...mapActions(['refreshUserData']),
     /** 模拟数据获取 */
     getHomeStatus () {
       return new Promise((resolve) => {
-        setTimeout(function () {
-          resolve(JSON.parse(JSON.stringify(testData)))
+        setTimeout(() => {
+          if (!this.homeList || this.homeList.length < 20 * 3) {
+            resolve(JSON.parse(JSON.stringify(testData)))
+          } else {
+            resolve({
+              code: 0,
+              data: {
+                count: 845,
+                list: []
+              }
+            })
+          }
         }, 1000)
       })
     },
@@ -67,7 +86,12 @@ export default {
       const res = await this.getHomeStatus()
       this.loading = false
       if (!res || res.code) return
-      this.homeList = res.data.list.map(item => {
+      this.homeCount = res.data.count
+      if (!res.data.list || !res.data.list.length) {
+        this.hasNextPage = false
+        return
+      }
+      this.homeList.push(...res.data.list.map(item => {
         return {
           card: this.tryJsonParse(item.data),
           frontQueue: [],
@@ -80,10 +104,8 @@ export default {
             like: item.like,
             liked: item.liked
           }
-          // frontQueue: this.getFrontQueue(res.data, i)
         }
-      })
-      this.homeCount = res.data.count
+      }))
     },
     tryJsonParse (str) {
       if (!str) return null
