@@ -22,5 +22,9 @@
     "copy": "Copy failed",
     "pleaseLogin": "Please log in first"
   },
-  "likeSuccess": "Like success"
+  "likeSuccess": "Like success",
+  "meta-price": "$Meta Price",
+  "usd-per-coin": "USD per coin",
+  "your-meta": "Your $Meta",
+  "usd": "USD"
 }
