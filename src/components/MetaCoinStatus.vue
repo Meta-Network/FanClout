@@ -1,21 +1,27 @@
 <template>
   <div class="meta-status">
     <div class="meta-status-price">
-      <span class="meta-status-text-dark">$Meta Price</span>
-      <span class="meta-status-text-dark">~${{ price }} <span class="meta-status-text-light">USD per coin</span></span>
+      <span class="meta-status-text-dark">{{ $t('meta-price') }}</span>
+      <span class="meta-status-text-dark">~${{ price }} <span class="meta-status-text-light">{{ $t('usd-per-coin') }}</span></span>
     </div>
     <div class="meta-status-user-meta">
-      <span class="meta-status-text-dark">Your $Meta</span>
-      <span class="meta-status-text-dark">{{ userMeta }} <span class="meta-status-text-light"> ≈ ${{ equalsUSD }} USD</span></span>
+      <span class="meta-status-text-dark">{{ $t('your-meta') }}</span>
+      <span class="meta-status-text-dark">{{ userMeta }} <span class="meta-status-text-light"> ≈ ${{ equalsUSD }} {{ $t('usd') }}</span></span>
     </div>
   </div>
 </template>
 <script>
 export default {
-  data () {
-    return {
-      price: '60000',
-      userMeta: '1'
+  props: {
+    price: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    userMeta: {
+      type: Number,
+      required: false,
+      default: 0
     }
   },
   computed: {

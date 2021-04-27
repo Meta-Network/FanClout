@@ -22,5 +22,9 @@
     "copy": "复制失败",
     "pleaseLogin": "请先登录"
   },
-  "likeSuccess": "点赞成功"
+  "likeSuccess": "点赞成功",
+  "meta-price": "$Meta 价格",
+  "usd-per-coin": "单价（美元）",
+  "your-meta": "你的 $Meta",
+  "usd": "美元"
 }
