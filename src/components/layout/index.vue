@@ -3,7 +3,7 @@
     <div class="nav-shell">
       <Navigation />
     </div>
-    <div class="slot-shell">
+    <div class="slot-shell" :class="hideSidebar && 'slot-shell-wider'">
       <div class="slot-shell-header">
         <h3>
           <slot name="title" />
@@ -11,7 +11,7 @@
       </div>
       <slot />
     </div>
-    <div class="sidebar-shell">
+    <div v-if="!hideSidebar" class="sidebar-shell">
       <Sidebar />
     </div>
   </div>
@@ -26,6 +26,12 @@ export default {
   components: {
     Navigation,
     Sidebar
+  },
+  props: {
+    hideSidebar: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
@@ -58,6 +64,10 @@ export default {
     border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
     background-color: #f8f8f8;
+
+    &.slot-shell-wider {
+      flex: 1;
+    }
 
     &-header {
       height: 80px;

@@ -52,6 +52,7 @@ import { inject, onMounted, ref } from 'vue'
 export default {
   setup () {
     const setTitle = inject('setTitle')
+    const setHideSidebar = inject('setHideSidebar')
     const coinsData = ref([
       {
         name: 'test',
@@ -68,6 +69,7 @@ export default {
     ])
     onMounted(() => {
       setTitle('Buy Contributors Coin')
+      setHideSidebar(true)
     })
     const BuyCoinsUrl = (row) => {
       console.log(row)
