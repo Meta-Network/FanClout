@@ -1,36 +1,34 @@
 <template>
   <div>
-    <a>
-      <div class="top-weekly-creator-item">
-        <div class="top-weekly-creator-item-left">
-          <img class="top-weekly-creator-item-left-avatar" :src="avatar" alt="user avatar">
-          <span class="top-weekly-creator-item-left-username">{{ username }}</span>
-        </div>
-        <span class="top-weekly-creator-item-right">~${{ fanTicketPrice }}</span>
+    <a class="top-weekly-creator-item" :href="creator.buyUrl" target="_blank">
+      <div class="top-weekly-creator-item-left">
+        <a :href="creator.homepage" target="_blank">
+          <img class="top-weekly-creator-item-left-avatar" :src="creator.avatar" alt="user avatar">
+        </a>
+        <a :href="creator.homepage" target="_blank">
+          <span class="top-weekly-creator-item-left-username">{{ creator.name }}</span>
+        </a>
       </div>
+      <span class="top-weekly-creator-item-right">~${{ creator.price }}</span>
     </a>
   </div>
 </template>
 <script>
 export default {
   props: {
-    avatar: {
-      type: String,
-      required: false,
-      default: ''
-    },
-    username: {
-      type: String,
-      required: true
-    },
-    fanTicketPrice: {
-      type: String,
+    creator: {
+      type: Object,
       required: true
     }
   }
 }
 </script>
 <style scoped lang="less">
+a {
+  text-decoration: none;
+  color: #555;
+}
+
 .top-weekly-creator-item {
   display: flex;
   flex-direction: row;
@@ -45,9 +43,15 @@ export default {
       margin-right: 10px;
     }
     align-items: center;
-  }
-  &-right {
 
+    &-username:hover {
+      color: #005bff;
+      text-decoration: underline;
+    }
+  }
+
+  &:hover {
+    color: black;
   }
 }
 </style>

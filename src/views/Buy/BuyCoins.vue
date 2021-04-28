@@ -14,30 +14,34 @@
         >
           <template #default="scope">
             <div class="name-container">
-              <el-avatar :size="40" :src="scope.row.avatar" />
-              <el-button type="text" class="name" @click="BuyCoinsUrl(scope.row)">
+              <a class="avatar" :href="scope.row.homepage" target="_blank">
+                <el-avatar :size="40" :src="scope.row.avatar" />
+              </a>
+              <a class="name" :href="scope.row.homepage" target="_blank">
                 {{ scope.row.name }}
-              </el-button>
+              </a>
             </div>
           </template>
         </el-table-column>
         <el-table-column
           prop="price"
           label="price"
+          width="300px"
         >
           <template #default="scope">
             <div class="price-container">
               <div class="PriceNumber">
-                {{ scope.row.price }}
+                ~${{ scope.row.price }}
               </div>
-              <el-button
-                size="small"
-                type="primary"
-                class="BuyButton"
-                @click="BuyCoinsUrl(scope.row)"
-              >
-                Buy
-              </el-button>
+              <a :href="scope.row.buyUrl" target="_blank">
+                <el-button
+                  size="small"
+                  type="primary"
+                  class="BuyButton"
+                >
+                  Buy
+                </el-button>
+              </a>
             </div>
           </template>
         </el-table-column>
@@ -48,42 +52,35 @@
 
 <script>
 import { inject, onMounted, ref } from 'vue'
+import topCreators from '@/constants/TopCreators'
 
 export default {
   setup () {
     const setTitle = inject('setTitle')
     const setHideSidebar = inject('setHideSidebar')
-    const coinsData = ref([
-      {
-        name: 'test',
-        price: 'test',
-        avatar: 'https://pbs.twimg.com/profile_images/1273450418895376385/kIXRS_tA_400x400.jpg'
-        // 示例//
-      },
-      {
-        name: 'test',
-        price: 'test',
-        avatar: 'https://pbs.twimg.com/profile_images/1273450418895376385/kIXRS_tA_400x400.jpg'
-        // 示例//
-      }
-    ])
+    const coinsData = ref(topCreators)
+
+    /** 清除 referer，否则无法加载B站的图片资源 */
+    const clearReferer = () => {
+      const meta = document.createElement('meta')
+      meta.name = 'referrer'
+      meta.content = 'no-referrer'
+      document.getElementsByTagName('head')[0].appendChild(meta)
+    }
+
     onMounted(() => {
       setTitle('Buy Contributors Coin')
       setHideSidebar(true)
+      clearReferer()
     })
-    const BuyCoinsUrl = (row) => {
-      console.log(row)
-    } // 跳转//
     return {
-      coinsData,
-      BuyCoinsUrl
+      coinsData
     }
   }
-
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .Desc{
   font-family: 'Roboto Mono', monospace;
   padding: 20px ;
@@ -109,6 +106,14 @@ export default {
   font-family: 'Roboto Mono', monospace;
   padding: 0 0 0 20px;
   color: #606266;
+  text-decoration: none;
+  &:hover {
+    color: #005bff;
+    text-decoration: underline;
+  }
+}
+.avatar {
+  text-decoration: none;
 }
 .BuyButton{
   display: flex;
