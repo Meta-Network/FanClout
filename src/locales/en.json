@@ -15,16 +15,19 @@
   "nav-buy-meta": "Buy MetaBeta",
   "nav-contributors": "Buy Contributors Coin",
   "success": {
-    "copy": "Copy successfully"
+    "copy": "Copy successfully",
+    "likeSuccess": "Like successfully"
   },
   "error": {
     "fail": "failure",
     "copy": "Copy failed",
-    "pleaseLogin": "Please log in first"
+    "pleaseLogin": "Please log in first",
+    "failedToFetchTimeline": "Failed fetching timeline"
   },
   "likeSuccess": "Like success",
   "meta-price": "$Meta Price",
   "usd-per-coin": "USD per coin",
   "your-meta": "Your $Meta",
-  "usd": "USD"
+  "usd": "USD",
+  "retweeted": "Retweeted"
 }
