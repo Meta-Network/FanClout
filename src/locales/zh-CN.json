@@ -15,16 +15,19 @@
   "nav-buy-meta": "购买 MetaBeta",
   "nav-contributors": "购买贡献者币",
   "success": {
-    "copy": "复制成功"
+    "copy": "复制成功",
+    "likeSuccess": "点赞成功"
   },
   "error": {
     "fail": "失败",
     "copy": "复制失败",
-    "pleaseLogin": "请先登录"
+    "pleaseLogin": "请先登录",
+    "failedToFetchTimeline": "获取时间线失败"
   },
   "likeSuccess": "点赞成功",
   "meta-price": "$Meta 价格",
   "usd-per-coin": "单价（美元）",
   "your-meta": "你的 $Meta",
-  "usd": "美元"
+  "usd": "美元",
+  "retweeted": "转推了"
 }
