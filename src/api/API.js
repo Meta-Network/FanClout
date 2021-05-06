@@ -24,6 +24,13 @@ export default {
     const { data: res } = await axios.get(process.env.VUE_APP_MATATAKI_CACHE + '/status/timeline', { params: { page, filters }, headers })
     return res
   },
+  async getAllTimeline (page = 1, filters) {
+    const headers = {}
+    const accessToken = store.get(KEY_ACCESS_TOKEN)
+    if (accessToken) headers['x-access-token'] = accessToken
+    const { data: res } = await axios.get(process.env.VUE_APP_MATATAKI_CACHE + '/status/all-timeline', { params: { page, filters }, headers })
+    return res
+  },
   /** 点赞动态 */
   async likeEvent (type, platform, dynamicId) {
     const url = process.env.VUE_APP_MATATAKI_CACHE + '/status/interactive/' + type
