@@ -64,13 +64,13 @@ export default {
 .twitter-content {
   color: black;
   white-space: pre-line;
-  /deep/ span {
+  ::v-deep(span) {
     color: #1b95e0;
     &:hover {
       text-decoration: underline;
     }
   }
-  /deep/ a {
+  ::v-deep(a) {
     color: #1b95e0;
     &:hover {
       text-decoration: underline;
