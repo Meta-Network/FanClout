@@ -2,7 +2,7 @@
   <div :id="tag">
     <div v-if="noData || loading" class="infinite-scroll" v-loading="loading">
       <p v-if="!loading">
-        {{ noDataText || $t('flowCard.noStatusYet') }}
+        {{ noDataText || $t('noStatusYet') }}
       </p>
     </div>
   </div>
