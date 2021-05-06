@@ -8,6 +8,7 @@
         <h3>
           <slot name="title" />
         </h3>
+        <SearchBox v-if="hideSidebar" class="slot-shell-header-search-box" />
       </div>
       <slot />
     </div>
@@ -20,12 +21,14 @@
 <script>
 import Navigation from './navigation'
 import Sidebar from './sidebar'
+import SearchBox from '@/components/SearchBox'
 
 export default {
   name: 'Layout',
   components: {
     Navigation,
-    Sidebar
+    Sidebar,
+    SearchBox
   },
   props: {
     hideSidebar: {
@@ -85,6 +88,11 @@ export default {
         color: black;
         margin: 0;
         padding: 0;
+        flex: 1;
+      }
+
+      &-search-box {
+        width: 234px;
       }
     }
   }
