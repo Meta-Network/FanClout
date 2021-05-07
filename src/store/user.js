@@ -37,6 +37,12 @@ const getDefaultState = () => {
 
 export const state = getDefaultState
 
+export const getters = {
+  isLogined (state) {
+    return state.userInfo && state.userInfo.id && state.userInfo.id !== -1
+  }
+}
+
 export const mutations = {
   /**
    * 重置用户信息

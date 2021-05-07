@@ -61,7 +61,6 @@ export default {
   position: relative;
   z-index: 30;
   background-color: #f8f8f8;
-  width: 185px;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;

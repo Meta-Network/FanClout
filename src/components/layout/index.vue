@@ -3,15 +3,16 @@
     <div class="nav-shell">
       <Navigation />
     </div>
-    <div class="slot-shell">
+    <div class="slot-shell" :class="hideSidebar && 'slot-shell-wider'">
       <div class="slot-shell-header">
         <h3>
           <slot name="title" />
         </h3>
+        <SearchBox v-if="hideSidebar" class="slot-shell-header-search-box" />
       </div>
       <slot />
     </div>
-    <div class="sidebar-shell">
+    <div v-if="!hideSidebar" class="sidebar-shell">
       <Sidebar />
     </div>
   </div>
@@ -20,12 +21,20 @@
 <script>
 import Navigation from './navigation'
 import Sidebar from './sidebar'
+import SearchBox from '@/components/SearchBox'
 
 export default {
   name: 'Layout',
   components: {
     Navigation,
-    Sidebar
+    Sidebar,
+    SearchBox
+  },
+  props: {
+    hideSidebar: {
+      type: Boolean,
+      default: false
+    }
   }
 }
 </script>
@@ -33,11 +42,11 @@ export default {
 <style lang="less" scoped>
 .layout {
   width: 100%;
-  max-width: 1220px;
+  max-width: 1240px;
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  padding: 0 10px;
+  padding: 0;
   margin: 0 auto;
 
   .shell {
@@ -48,7 +57,7 @@ export default {
 
   .nav-shell {
     .shell();
-    flex-grow: 1;
+    width: 265px;
     align-items: flex-end;
   }
 
@@ -58,6 +67,10 @@ export default {
     border-left: 1px solid #e5e5e5;
     border-right: 1px solid #e5e5e5;
     background-color: #f8f8f8;
+
+    &.slot-shell-wider {
+      flex: 1;
+    }
 
     &-header {
       height: 80px;
@@ -75,6 +88,11 @@ export default {
         color: black;
         margin: 0;
         padding: 0;
+        flex: 1;
+      }
+
+      &-search-box {
+        width: 234px;
       }
     }
   }
@@ -82,7 +100,6 @@ export default {
   .sidebar-shell {
     .shell();
     flex: 1;
-    min-width: 400px;
   }
 }
 </style>

@@ -1,13 +1,22 @@
 <template>
   <div class="home">
-    <div class="home-list" v-loading="loading">
+    <div class="home-list">
       <template v-for="(item, index) of homeList">
         <!-- Matataki 动态卡片 -->
         <mttkCard
           v-if="item && item.platform === 'matataki'"
           class="home-list-item"
-          :key="index"
+          :key="index + '-matataki'"
           :data="item.card"
+        />
+        <twitterCard
+          v-else-if="item && item.platform === 'twitter'"
+          class="home-list-item"
+          show-logo
+          :key="index + '-twitter'"
+          :card="item.card"
+          :stats="item.stats"
+          @click-like="likeEvent"
         />
         <!-- 未知平台 -->
         <div v-else class="home-list-item item-warning" :key="index + '-unsupportedStausType'">
@@ -15,6 +24,13 @@
           ID: {{ item ? item.id : 'unknown' }}
         </div>
       </template>
+      <infiniteScroll
+        :no-data="!homeList || !homeList.length"
+        :loading="loading"
+        :distance="40"
+        :disable="!hasNextPage"
+        @load="loadMore"
+      />
     </div>
   </div>
 </template>
@@ -24,49 +40,65 @@ import { mapState, mapActions } from 'vuex'
 import store from 'store2'
 import { KEY_ACCESS_TOKEN, KEY_ACCESS_TOKEN_INFO } from '../constants'
 import mttkCard from '@/components/statusCard/mttk'
-
-import testData from '@/testData.json'
+import twitterCard from '@/components/statusCard/twitter'
+import infiniteScroll from '@/components/InfiniteScroll'
 
 export default {
   name: 'Home',
   components: {
-    mttkCard
+    mttkCard,
+    twitterCard,
+    infiniteScroll
   },
   inject: ['setTitle'],
   data () {
     return {
-      loading: false,
+      loading: true,
       homeList: [],
-      homeCount: 0
+      homeCount: 1,
+      pageSize: 20,
+      page: 0
     }
   },
   computed: {
     ...mapState(['userInfo']),
     time () {
       return this.$moment().format('YYYY-MM-DD HH:mm:ss')
+    },
+    hasNextPage () {
+      return Math.round(this.page * this.pageSize) < this.homeCount
     }
   },
   mounted () {
     this.setTitle('Home')
-    this.loadMore()
     this.autoLogin()
+    // this.getUserState()
   },
   methods: {
     ...mapActions(['refreshUserData']),
-    /** 模拟数据获取 */
-    getHomeStatus () {
-      return new Promise((resolve) => {
-        setTimeout(function () {
-          resolve(JSON.parse(JSON.stringify(testData)))
-        }, 1000)
-      })
-    },
     async loadMore () {
       this.loading = true
-      const res = await this.getHomeStatus()
+      let res
+      try {
+        res = await this.$API.getTimeline(this.page + 1)
+        console.log('res:', res)
+      } catch (err) {
+        console.error(err)
+        this.$message.error(this.$t('error.failedToFetchTimeline'))
+        return
+      }
       this.loading = false
-      if (!res || res.code) return
-      this.homeList = res.data.list.map(item => {
+      if (!res || res.code) {
+        this.$message.error(res.message)
+        return
+      }
+      this.homeCount = res.data.count
+      if (!res.data.list || !res.data.list.length) {
+        this.hasNextPage = false
+        return
+      }
+      this.page++
+      this.homeList.push(...res.data.list.map(item => {
         return {
           card: this.tryJsonParse(item.data),
           frontQueue: [],
@@ -79,10 +111,9 @@ export default {
             like: item.like,
             liked: item.liked
           }
-          // frontQueue: this.getFrontQueue(res.data, i)
         }
-      })
-      this.homeCount = res.data.count
+      }))
+      console.log('this.homeList', this.homeList)
     },
     tryJsonParse (str) {
       if (!str) return null
@@ -108,6 +139,21 @@ export default {
         }
       } catch (error) {
         console.error(error)
+      }
+    },
+    async getUserState () {
+      const res = await this.$API.getMyUserData()
+      console.log('getMyUserData:', res)
+    },
+    async likeEvent ({ type, platform, dynamicId }) {
+      try {
+        const res = await this.$API.likeEvent(type, platform, dynamicId)
+        if (!res.code) {
+          this.$message.success(this.$t('likeSuccess'))
+        } else this.$message.error(res.error)
+      } catch (e) {
+        console.error('[Like failed]:', e)
+        this.$message.error(this.$t('fail'))
       }
     }
   }

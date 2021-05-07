@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import i18n from './i18n'
 import moment from 'moment'
+import mitt from 'mitt'
 import installElementPlus from './plugins/element'
 import initSvgIcon from '@/icons'
 import utils from '@/utils/utils'
@@ -17,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './fonts/fonts.css'
 
 moment.locale('en-US')
+
+const bus = mitt()
 
 const app = createApp(App)
 
@@ -33,6 +36,8 @@ app.config.globalProperties.$ossProcess = ossProcess
 
 app.config.globalProperties.$API = API
 
+app.config.globalProperties.$bus = bus
+
 // eslint-disable-next-line vue/component-definition-name-casing
 app.component('c-avatar', avatar)
 // eslint-disable-next-line vue/component-definition-name-casing
@@ -43,3 +48,6 @@ library.add(faAngleDown)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(i18n).use(store).use(router).mount('#app')
+
+// Initialize ethers store
+store.dispatch('ethers/init')

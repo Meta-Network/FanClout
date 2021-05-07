@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Layout>
+    <Layout :hide-sidebar="hideSidebar">
       <template #title>
         {{ title }}
       </template>
@@ -19,17 +19,30 @@ export default {
   },
   provide () {
     return {
-      setTitle: this.setTitle
+      setTitle: this.setTitle,
+      setHideSidebar: this.setHideSidebar
     }
   },
   data () {
     return {
-      title: ''
+      title: '',
+      hideSidebar: false
+    }
+  },
+  watch: {
+    $route (val, oldVal) {
+      if (val.name !== oldVal.name) {
+        this.setHideSidebar(false)
+        this.setTitle('')
+      }
     }
   },
   methods: {
     setTitle (value) {
       this.title = value
+    },
+    setHideSidebar (value) {
+      this.hideSidebar = Boolean(value)
     }
   }
 }

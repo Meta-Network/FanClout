@@ -93,8 +93,8 @@
         <a class="jump-shield" href="javascript:;">
           <div class="cardunit-r-flows">
             <!-- 转发 -->
-            <div class="cardunit-r-flows-forward">
-              <svg-icon icon-class="dynamic-repo" @click="refPush" />
+            <div class="cardunit-r-flows-forward flows-disable">
+              <svg-icon icon-class="dynamic-repo" />
               <span v-if="flows.retweet">
                 {{ flows.retweet }}
               </span>
@@ -139,6 +139,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import useClipboard from 'vue-clipboard3'
+import { ElMessage } from 'element-plus'
+import i18n from '@/i18n'
 import mainText from './main_text'
 import photoAlbum from './photo_album'
 import references from './references'
@@ -154,6 +157,22 @@ export default {
     data: {
       type: Object,
       required: true
+    }
+  },
+  setup () {
+    const global = i18n.global
+    const { toClipboard } = useClipboard()
+    const copyCode = async (text) => {
+      try {
+        await toClipboard(text)
+        ElMessage.success(global.t('success.copy'))
+      } catch (err) {
+        console.error(err)
+        ElMessage.error(global.t('error.copy'))
+      }
+    }
+    return {
+      copyCode
     }
   },
   data () {
@@ -231,7 +250,7 @@ export default {
     // },
     // 推荐
     async likeClick () {
-      if (!this.isLogined) return this.$store.commit('setLoginModal', true)
+      if (!this.isLogined) return this.notLoggedIn()
       if (!this.card || this.flows.iLiked) return
       this.likeLoading = true
       // 文章在客户端打开后提交，表示开始阅读，不提交这个会出现点赞失败的情况
@@ -258,28 +277,15 @@ export default {
     },
     // 获取分享链接
     getShareLink () {
-      return `${process.env.VUE_APP_URL}/share/${this.card.id}`
+      return `${this.$utils.getLocalUrl()}share/${this.card.id}`
     },
     // 引用发布
     refPush () {
-      if (!this.isLogined) return this.$store.commit('setLoginModal', true)
+      if (!this.isLogined) return this.notLoggedIn()
       this.$emit('ref-push', this.getShareLink())
     },
-    // 拷贝
-    copyCode (code) {
-      console.log(code)
-      this.$copyText(code).then(
-        () => {
-          this.$message({
-            showClose: true,
-            message: this.$t('success.copy'),
-            type: 'success'
-          })
-        },
-        () => {
-          this.$message({ showClose: true, message: this.$t('error.copy'), type: 'error' })
-        }
-      )
+    notLoggedIn () {
+      ElMessage.warning(this.$t('error.pleaseLogin'))
     }
   }
 }
@@ -482,7 +488,7 @@ span {
         .flow-default();
 
         svg {
-          .default-hover();
+          // .default-hover();
           width: 21px;
         }
       }

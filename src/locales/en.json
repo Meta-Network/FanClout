@@ -3,13 +3,32 @@
   "redirecting": "Redirecting...",
   "oauth-fail": "Login failed, please try again or contact the Matataki administrator!",
   "viewMore": "View More",
+  "hideMore": "Hide",
   "home": {
     "unsupportedStausType": "Unsupported staus type: {0}"
   },
-  "right-bar-login-welcome": "Welcome to FanClout!",
+  "right-bar-login-welcome": "Welcome to MetaClout!",
   "log-in": "Log In",
   "log-out": "Log Out",
   "nav-home": "Home",
   "nav-about": "About",
-  "nav-buy-meta": "Buy Meta"
+  "nav-buy-meta": "Buy MetaBeta",
+  "nav-contributors": "Buy Contributors Coin",
+  "success": {
+    "copy": "Copy successfully",
+    "likeSuccess": "Like successfully"
+  },
+  "error": {
+    "fail": "failure",
+    "copy": "Copy failed",
+    "pleaseLogin": "Please log in first",
+    "failedToFetchTimeline": "Failed fetching timeline"
+  },
+  "likeSuccess": "Like success",
+  "meta-price": "$Meta Price",
+  "usd-per-coin": "USD per coin",
+  "your-meta": "Your $Meta",
+  "usd": "USD",
+  "retweeted": "Retweeted",
+  "noStatusYet": "No status yet"
 }

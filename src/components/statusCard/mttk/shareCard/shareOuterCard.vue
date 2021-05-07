@@ -53,6 +53,10 @@
 </template>
 
 <script>
+import useClipboard from 'vue-clipboard3'
+import { ElMessage } from 'element-plus'
+import i18n from '@/i18n'
+
 export default {
   props: {
     cardType: {
@@ -71,6 +75,21 @@ export default {
     shareCard: {
       type: Boolean,
       default: false
+    }
+  },
+  setup () {
+    const global = i18n.global
+    const { toClipboard } = useClipboard()
+    const copyCode = async function (text) {
+      try {
+        await toClipboard(text)
+        ElMessage.success(global.t('success.copy'))
+      } catch (err) {
+        ElMessage.error(global.t('error.copy'))
+      }
+    }
+    return {
+      copyCode
     }
   },
   computed: {
@@ -97,14 +116,7 @@ export default {
     copy (val, e) {
       if (e && e.preventDefault) e.preventDefault()
       else if (e && e.stopPropagation) e.stopPropagation()
-      this.$copyText(val).then(
-        () => this.$message({
-          showClose: true,
-          message: this.$t('success.copy'),
-          type: 'success'
-        }),
-        () => this.$message({ showClose: true, message: this.$t('error.copy'), type: 'error' })
-      )
+      this.copyCode(val)
       return false
     },
     ref (val, e) {

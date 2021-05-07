@@ -17,12 +17,13 @@
       </div>
     </template>
     <!-- 推荐用户 -->
-    <img
+    <!-- <img
       v-show="recommendAuthor"
       src="@/assets/img/recommend_author.svg"
       alt="icon"
       class="recommend-icon"
-    >
+    > -->
+    <svg-icon v-show="recommendAuthor" icon-class="recommend-author" class="recommend-icon" />
   </div>
 </template>
 
