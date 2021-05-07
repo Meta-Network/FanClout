@@ -1,5 +1,8 @@
 # fanclout
 
+## ENVs
+test: [fan-clout-test.misaka.org](https://fan-clout-test.misaka.org)
+
 ## Project setup
 ```
 yarn install
