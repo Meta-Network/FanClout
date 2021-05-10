@@ -39,6 +39,7 @@ export const state = getDefaultState
 
 export const getters = {
   isLogined (state) {
+    console.log('state.userInfo:', state.userInfo)
     return state.userInfo && state.userInfo.id && state.userInfo.id !== -1
   }
 }
