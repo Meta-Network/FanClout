@@ -101,7 +101,6 @@ export default {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-radius: 6px;
 
   p {
     margin: 0;

@@ -5,7 +5,9 @@
   "viewMore": "View More",
   "hideMore": "Hide",
   "home": {
-    "unsupportedStausType": "Unsupported staus type: {0}"
+    "unsupportedStausType": "Unsupported staus type: {0}",
+    "tabGlobal": "Global",
+    "tabFollowing": "Following"
   },
   "right-bar-login-welcome": "Welcome to MetaClout!",
   "log-in": "Log In",

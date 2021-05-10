@@ -5,7 +5,9 @@
   "viewMore": "查看更多",
   "hideMore": "收起更多",
   "home": {
-    "unsupportedStausType": "不支持的动态类型: {0}"
+    "unsupportedStausType": "不支持的动态类型: {0}",
+    "tabGlobal": "全部",
+    "tabFollowing": "正在关注"
   },
   "right-bar-login-welcome": "欢迎来到 MetaClout！",
   "log-in": "登 录",
