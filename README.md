@@ -2,6 +2,7 @@
 
 ## ENVs
 test: [fan-clout-test.misaka.org](https://fan-clout-test.misaka.org)
+live: [clout.meta.io](https://clout.meta.io)
 
 ## Project setup
 ```
