@@ -20,25 +20,12 @@ jobs:
 
       - name: Compile
         run: |
-          yarn
+          yarn install --frozen-lockfile
           yarn run build
 
-      - name: Azure Static Web Apps Deploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          action: upload
-          # Directory location of the application source code
-          app_location: /dist
-          azure_static_web_apps_api_token: ${{ secrets.azure_static_web_token }}
-          # Custom command for Oryx to run when building Azure Functions source code
-          # api_build_command: # optional
-          # Directory location of the Azure Functions source code
-          # api_location: # optional
-          # Directory location of the compiled application code after building
-          # app_artifact_location: # optional
-          # Custom command for Oryx to run when building application source code
-          # app_build_command: yarn run build
-          # Token for interacting with the Github repository. Currently used only for commenting on Pull Requests.
-          # repo_token: # optional
-          # Directory location where the routes.json file can be found in the source code
-          # routes_location: # optional
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./public
+          cname: clout.meta.io
