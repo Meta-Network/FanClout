@@ -32,5 +32,12 @@
   "your-meta": "Your $Meta",
   "usd": "USD",
   "retweeted": "Retweeted",
-  "noStatusYet": "No status yet"
+  "noStatusYet": "No status yet",
+  "contribution-video": "Contribution video",
+  "sensitive-content": "Sensitive content",
+  "not": "Nothing",
+  "show-more-responses": "Show more responses",
+  "the-media-is-not-available-because-it-contains-sensitive-content": "The media is not available because it contains sensitive content.",
+  "view": "View",
+  "your-browser-does-not-support-the-HTML5-video-tag": "Your browser does not support the HTML5 video tag."
 }
