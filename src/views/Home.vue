@@ -41,6 +41,15 @@
           :stats="item.stats"
           @click-like="likeEvent"
         />
+        <MastodonCard
+          v-else-if="item && item.platform === 'mastodon'"
+          class="home-list-item"
+          show-logo
+            :key="index + '-Mastodon'"
+          :data="item.card"
+          :stats="item.stats"
+          @click-like="likeEvent"
+        />
         <!-- 未知平台 -->
         <div v-else class="home-list-item item-warning" :key="index + '-unsupportedStausType'">
           {{ $t('home.unsupportedStausType', [item ? item.platform : 'unknown']) }}<br>
@@ -72,6 +81,7 @@ import mttkCard from '@/components/statusCard/mttk'
 import twitterCard from '@/components/statusCard/twitter'
 import bilibiliCard from '@/components/statusCard/bilibili'
 import infiniteScroll from '@/components/InfiniteScroll'
+import MastodonCard from '@/components/statusCard/mastodon'
 
 export default {
   name: 'Home',
@@ -79,7 +89,8 @@ export default {
     mttkCard,
     twitterCard,
     bilibiliCard,
-    infiniteScroll
+    infiniteScroll,
+    MastodonCard
   },
   inject: ['setTitle'],
   data () {

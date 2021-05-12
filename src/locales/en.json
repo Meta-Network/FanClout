@@ -39,5 +39,7 @@
   "show-more-responses": "Show more responses",
   "the-media-is-not-available-because-it-contains-sensitive-content": "The media is not available because it contains sensitive content.",
   "view": "View",
-  "your-browser-does-not-support-the-HTML5-video-tag": "Your browser does not support the HTML5 video tag."
+  "your-browser-does-not-support-the-HTML5-video-tag": "Your browser does not support the HTML5 video tag.",
+  "people": "people",
+  "toot": "toot"
 }

@@ -39,5 +39,7 @@
   "show-more-responses": "显示更多回复",
   "the-media-is-not-available-because-it-contains-sensitive-content": "该媒体不可用，因为它包含敏感内容。",
   "view": "查看",
-  "your-browser-does-not-support-the-HTML5-video-tag": "您的浏览器不支持 HTML5 video 标签。"
+  "your-browser-does-not-support-the-HTML5-video-tag": "您的浏览器不支持 HTML5 video 标签。",
+  "people": "人",
+  "toot": "转嘟了"
 }
