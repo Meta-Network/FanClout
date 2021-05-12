@@ -155,7 +155,7 @@ export default {
       const oldTab = this.tab
       let res
       try {
-        if (this.tab === 'global') res = await this.$API.getAllTimeline(this.timeline.page + 1, '["mastodon"]')
+        if (this.tab === 'global') res = await this.$API.getAllTimeline(this.timeline.page + 1)
         else res = await this.$API.getTimeline(this.timeline.page + 1)
         console.log('res:', res)
       } catch (err) {
