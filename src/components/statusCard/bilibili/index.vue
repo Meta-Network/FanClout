@@ -241,7 +241,7 @@ span {
 .cardunit {
   background: rgba(255, 255, 255, 1);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 0;
   box-sizing: border-box;
   display: flex;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
