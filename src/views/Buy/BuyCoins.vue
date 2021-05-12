@@ -14,10 +14,20 @@
         >
           <template #default="scope">
             <div class="name-container">
-              <a class="avatar" :href="scope.row.homepage" target="_blank">
+              <a
+                class="avatar"
+                :href="scope.row.homepage"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <el-avatar :size="40" :src="scope.row.avatar" />
               </a>
-              <a class="name" :href="scope.row.homepage" target="_blank">
+              <a
+                class="name"
+                :href="scope.row.homepage"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {{ scope.row.name }}
               </a>
             </div>
@@ -33,7 +43,12 @@
               <div class="PriceNumber">
                 ~${{ scope.row.price }}
               </div>
-              <a :href="scope.row.buyUrl" target="_blank">
+              <a
+                :href="scope.row.buyUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="buy-link"
+              >
                 <el-button
                   size="small"
                   type="primary"
@@ -58,20 +73,20 @@ export default {
   setup () {
     const setTitle = inject('setTitle')
     const setHideSidebar = inject('setHideSidebar')
-    const coinsData = ref(topCreators)
+    const coinsData = [...ref(topCreators).value].sort((i, j) => +(j.price > i.price) || +(j.price === i.price) - 1)
 
     /** 清除 referer，否则无法加载B站的图片资源 */
-    const clearReferer = () => {
-      const meta = document.createElement('meta')
-      meta.name = 'referrer'
-      meta.content = 'no-referrer'
-      document.getElementsByTagName('head')[0].appendChild(meta)
-    }
+    // const clearReferer = () => {
+    //   const meta = document.createElement('meta')
+    //   meta.name = 'referrer'
+    //   meta.content = 'no-referrer'
+    //   document.getElementsByTagName('head')[0].appendChild(meta)
+    // }
 
     onMounted(() => {
-      setTitle('Buy Contributors Coin')
+      setTitle('Buy Creator Coins')
       setHideSidebar(true)
-      clearReferer()
+      // clearReferer()
     })
     return {
       coinsData
@@ -115,6 +130,9 @@ export default {
 .avatar {
   text-decoration: none;
 }
+.buy-link {
+  text-decoration: none;
+}
 .BuyButton{
   display: flex;
   align-items: center;
@@ -122,11 +140,13 @@ export default {
   border-color: #005bff;
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   border-radius: 12px;
+  text-decoration: none;
 }
 .BuyButton:hover{
   color: #fff;
   background-color: #004bd1;
   border-color: #0047c4;
+  text-decoration: none;
 }
 
 </style>

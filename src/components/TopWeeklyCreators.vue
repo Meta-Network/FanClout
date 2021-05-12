@@ -21,7 +21,7 @@ export default {
   components: { TopWeeklyCreatorItem },
   data () {
     return {
-      creators: topCreators.slice(0, 10)
+      creators: topCreators.sort((i, j) => +(j.price > i.price) || +(j.price === i.price) - 1).slice(0, 10)
     }
   }
 }
