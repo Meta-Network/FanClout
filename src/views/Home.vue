@@ -32,6 +32,15 @@
           :stats="item.stats"
           @click-like="likeEvent"
         />
+        <bilibiliCard
+          v-else-if="item && item.platform === 'bilibili'"
+          class="home-list-item"
+          show-logo
+          :key="index + '-bilibili'"
+          :data="item.card"
+          :stats="item.stats"
+          @click-like="likeEvent"
+        />
         <!-- 未知平台 -->
         <div v-else class="home-list-item item-warning" :key="index + '-unsupportedStausType'">
           {{ $t('home.unsupportedStausType', [item ? item.platform : 'unknown']) }}<br>
@@ -61,6 +70,7 @@ import store from 'store2'
 import { KEY_ACCESS_TOKEN, KEY_ACCESS_TOKEN_INFO } from '../constants'
 import mttkCard from '@/components/statusCard/mttk'
 import twitterCard from '@/components/statusCard/twitter'
+import bilibiliCard from '@/components/statusCard/bilibili'
 import infiniteScroll from '@/components/InfiniteScroll'
 
 export default {
@@ -68,6 +78,7 @@ export default {
   components: {
     mttkCard,
     twitterCard,
+    bilibiliCard,
     infiniteScroll
   },
   inject: ['setTitle'],

@@ -266,7 +266,7 @@ export default {
         .then(res => {
           if (res.code === 0) {
             this.likeIt = true
-            this.$message({ type: 'success', message: this.$t('likeSuccess') })
+            this.$message({ type: 'success', message: this.$t('success.likeSuccess') })
           } else this.$message({ type: 'error', message: res.message })
         }).catch(err => {
           this.$message({ type: 'error', message: this.$t('error.fail') })

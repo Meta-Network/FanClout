@@ -7,7 +7,7 @@
       </div>
       <!-- <foreignUserPopover v-if="fromUser" :card="fromUser">
         <div class="cardunit-bg-retweeted-r">
-          {{ card.user.name || card.user.screen_name }} {{ $t('zhuan-tui-le') }}
+          {{ card.user.name || card.user.screen_name }} {{ $t('retweeted') }}
         </div>
       </foreignUserPopover> -->
       <div class="cardunit-bg-retweeted-r">
