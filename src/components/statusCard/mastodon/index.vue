@@ -5,11 +5,11 @@
       <div class="cardunit-bg-retweeted-l">
         <svg-icon icon-class="twitter-forward" />
       </div>
-<!--      <foreignUserPopover v-if="fromUser" :card="fromUser">-->
-<!--        <div class="cardunit-bg-retweeted-r">-->
-<!--          {{ data.account.display_name || data.account.username }} {{ $t('toot') }}-->
-<!--        </div>-->
-<!--      </foreignUserPopover>-->
+      <!--      <foreignUserPopover v-if="fromUser" :card="fromUser">-->
+      <!--        <div class="cardunit-bg-retweeted-r">-->
+      <!--          {{ data.account.display_name || data.account.username }} {{ $t('toot') }}-->
+      <!--        </div>-->
+      <!--      </foreignUserPopover>-->
       <div class="cardunit-bg-retweeted-r">
         {{ data.account.display_name || data.account.username }} {{ $t('toot') }}
       </div>
@@ -17,12 +17,12 @@
     <div class="cardunit">
       <!-- 头像 -->
       <div class="cardunit-l">
-<!--        <foreignUserPopover v-if="fromUser" :card="fromUser">-->
-<!--          <c-avatar-->
-<!--            class="cardunit-l-avatar"-->
-<!--            :src="avatarImg"-->
-<!--          />-->
-<!--        </foreignUserPopover>-->
+        <!--        <foreignUserPopover v-if="fromUser" :card="fromUser">-->
+        <!--          <c-avatar-->
+        <!--            class="cardunit-l-avatar"-->
+        <!--            :src="avatarImg"-->
+        <!--          />-->
+        <!--        </foreignUserPopover>-->
         <c-avatar
           class="cardunit-l-avatar"
           :src="avatarImg"

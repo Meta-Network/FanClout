@@ -45,7 +45,7 @@
           v-else-if="item && item.platform === 'mastodon'"
           class="home-list-item"
           show-logo
-            :key="index + '-Mastodon'"
+          :key="index + '-Mastodon'"
           :data="item.card"
           :stats="item.stats"
           @click-like="likeEvent"

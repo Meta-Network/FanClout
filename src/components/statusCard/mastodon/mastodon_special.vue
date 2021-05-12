@@ -8,9 +8,9 @@
           fit="cover"
           lazy
         >
-          <template v-slot:error>
+          <template #error>
             <div class="img-error-icon">
-              <i class="el-icon-document"/>
+              <i class="el-icon-document" />
             </div>
           </template>
         </el-image>
