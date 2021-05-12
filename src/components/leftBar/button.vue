@@ -1,5 +1,5 @@
 <template>
-  <div class="leftbar-button">
+  <div class="leftbar-button" :class="{ 'leftbar__disabled': disabled }">
     <a
       class="leftbar__dot leftbar__dot-inactive"
       :href="href"
@@ -44,6 +44,11 @@ export default {
       required: true
     },
     external: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    disabled: {
       type: Boolean,
       required: false,
       default: false
@@ -98,6 +103,24 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__disabled {
+    .leftbar__dot, .leftbar__text {
+      pointer-events: none;
+      cursor: not-allowed;
+      color: #eee !important;
+      &:hover, &:focus, &:active {
+        pointer-events: none;
+        cursor: not-allowed;
+        color: #eee !important;
+      }
+    }
+    .leftbar__dot {
+      visibility: hidden;
+    }
+    .leftbar__text-active {
+      font-weight: normal !important;
+    }
   }
 }
 </style>
