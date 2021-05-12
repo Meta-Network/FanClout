@@ -16,6 +16,8 @@
   "nav-about": "About",
   "nav-buy-meta": "Buy MetaBeta",
   "nav-contributors": "Buy Creator Coins",
+  "nav-create": "Create Creator Coins(WIP)",
+  "nav-bind": "Bind Creator Coins(WIP)",
   "success": {
     "copy": "Copy successfully",
     "likeSuccess": "Like successfully"
