@@ -45,7 +45,7 @@
           v-else-if="item && item.platform === 'mastodon'"
           class="home-list-item"
           show-logo
-            :key="index + '-Mastodon'"
+          :key="index + '-Mastodon'"
           :data="item.card"
           :stats="item.stats"
           @click-like="likeEvent"
@@ -155,7 +155,7 @@ export default {
       const oldTab = this.tab
       let res
       try {
-        if (this.tab === 'global') res = await this.$API.getAllTimeline(this.timeline.page + 1)
+        if (this.tab === 'global') res = await this.$API.getAllTimeline(this.timeline.page + 1, '["mastodon"]')
         else res = await this.$API.getTimeline(this.timeline.page + 1)
         console.log('res:', res)
       } catch (err) {

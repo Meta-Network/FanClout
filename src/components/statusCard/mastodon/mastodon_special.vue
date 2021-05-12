@@ -8,9 +8,9 @@
           fit="cover"
           lazy
         >
-          <template v-slot:error>
+          <template #error>
             <div class="img-error-icon">
-              <i class="el-icon-document"/>
+              <i class="el-icon-document" />
             </div>
           </template>
         </el-image>
@@ -82,7 +82,7 @@ export default {
       width: 100%;
       height: 100%;
 
-      /deep/ .img-error-icon {
+      ::v-deep(.img-error-icon) {
         width: 100%;
         height: 100%;
         display: flex;
