@@ -77,6 +77,11 @@ export default {
   box-sizing: border-box;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
+}
 
+@media screen and (max-width: 928px) {
+  .card {
+    padding: 20px 14px;
+  }
 }
 </style>
