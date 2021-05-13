@@ -9,7 +9,7 @@
           <span class="top-weekly-creator-item-left-username">{{ creator.name }}</span>
         </a>
       </div>
-      <span class="top-weekly-creator-item-right">~${{ creator.price }}</span>
+      <span class="top-weekly-creator-item-right">~${{ creator.priceFormated }}</span>
     </a>
   </div>
 </template>

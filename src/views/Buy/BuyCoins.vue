@@ -10,7 +10,7 @@
       >
         <el-table-column
           prop="name"
-          label="name"
+          label="Name"
         >
           <template #default="scope">
             <div class="name-container">
@@ -35,13 +35,13 @@
         </el-table-column>
         <el-table-column
           prop="price"
-          label="price"
+          label="Price"
           width="300px"
         >
           <template #default="scope">
             <div class="price-container">
               <div class="PriceNumber">
-                ~${{ scope.row.price }}
+                ~${{ scope.row.priceFormated }}
               </div>
               <a
                 :href="scope.row.buyUrl"
@@ -66,14 +66,15 @@
 </template>
 
 <script>
-import { inject, onMounted, ref } from 'vue'
-import topCreators from '@/constants/TopCreators'
+import { inject, onMounted, computed } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   setup () {
     const setTitle = inject('setTitle')
     const setHideSidebar = inject('setHideSidebar')
-    const coinsData = [...ref(topCreators).value].sort((i, j) => +(j.price > i.price) || +(j.price === i.price) - 1)
+    const store = useStore()
+    const coinsData = computed(() => store.getters.topCreators)
 
     /** 清除 referer，否则无法加载B站的图片资源 */
     // const clearReferer = () => {
@@ -86,6 +87,7 @@ export default {
     onMounted(() => {
       setTitle('Buy Creator Coins')
       setHideSidebar(true)
+      store.dispatch('updateCreatorData')
       // clearReferer()
     })
     return {
