@@ -1,19 +1,24 @@
 import { createStore } from 'vuex'
 import { state as userInfoState, getters as userInfoGetters, mutations as userInfoMutations, actions as userInfoActions } from './user'
+import { state as topCreatorsState, getters as topCreatorsGetters, mutations as topCreatorsMutations, actions as topCreatorsActions } from './topCreators'
 import ethers from './ethers'
 
 export default createStore({
   state: {
-    ...userInfoState
+    ...userInfoState,
+    ...topCreatorsState
   },
   getters: {
-    ...userInfoGetters
+    ...userInfoGetters,
+    ...topCreatorsGetters
   },
   mutations: {
-    ...userInfoMutations
+    ...userInfoMutations,
+    ...topCreatorsMutations
   },
   actions: {
-    ...userInfoActions
+    ...userInfoActions,
+    ...topCreatorsActions
   },
   modules: {
     ethers
