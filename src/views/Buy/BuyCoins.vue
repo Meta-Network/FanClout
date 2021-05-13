@@ -36,7 +36,6 @@
         <el-table-column
           prop="price"
           label="Price"
-          width="300px"
         >
           <template #default="scope">
             <div class="price-container">
@@ -109,8 +108,8 @@ export default {
   display: flex;
   font-size: 15px;
   align-items:center;
-  padding: 0 20px 0 0;
   font-family: 'Roboto Mono', monospace;
+  min-width: 105px;
 }
 .name-container{
   display: flex;
@@ -131,6 +130,8 @@ export default {
 }
 .avatar {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 .buy-link {
   text-decoration: none;
@@ -143,12 +144,23 @@ export default {
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   border-radius: 12px;
   text-decoration: none;
+  margin-left: 5em;
 }
 .BuyButton:hover{
   color: #fff;
   background-color: #004bd1;
   border-color: #0047c4;
   text-decoration: none;
+}
+.table{
+  @media screen and (max-width:600px) {
+    .BuyButton{
+      visibility: hidden;
+      width: 0;
+      margin-left:0;
+    }
+    position: absolute;
+  }
 }
 
 </style>
