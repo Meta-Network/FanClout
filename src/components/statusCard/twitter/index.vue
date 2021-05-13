@@ -75,7 +75,6 @@ export default {
   padding: 20px;
   border-radius: 0;
   box-sizing: border-box;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
