@@ -244,7 +244,6 @@ span {
   border-radius: 0;
   box-sizing: border-box;
   display: flex;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   &-l {
@@ -382,6 +381,12 @@ span {
       border: 1px solid #ccd6dd;
       margin-top: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 928px) {
+  .cardunit {
+    padding: 20px 14px;
   }
 }
 </style>

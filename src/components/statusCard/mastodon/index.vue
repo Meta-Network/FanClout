@@ -295,9 +295,7 @@ span {
 .cardunit-bg {
   background: rgba(255, 255, 255, 1);
   padding: 20px;
-  border-radius: 10px;
   box-sizing: border-box;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 
   &-retweeted {
@@ -508,6 +506,12 @@ span {
       border: 1px solid #ccd6dd;
       margin-top: 10px;
     }
+  }
+}
+
+@media screen and (max-width: 928px) {
+  .cardunit-bg {
+    padding: 20px 14px;
   }
 }
 </style>

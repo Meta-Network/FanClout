@@ -61,7 +61,11 @@ export default {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  word-break: break-all;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
 }
 
 .videocard {
@@ -154,5 +158,28 @@ export default {
     }
   }
 
+}
+
+@media screen and (max-width: 538px) {
+  .videocard {
+    flex-direction: column;
+    height: auto;
+    &-l {
+      width: 100%;
+      // min-width: 100px;
+    }
+
+    &-r {
+      margin-bottom: 10px;
+      h4 {
+        -webkit-line-clamp: 1;
+        height: 20px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  }
 }
 </style>

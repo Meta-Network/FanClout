@@ -30,8 +30,11 @@ export default {
   color: #333;
   overflow: hidden;
   width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
   word-break: break-word;
-  white-space: pre-line;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 20;

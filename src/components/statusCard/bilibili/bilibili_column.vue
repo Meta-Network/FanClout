@@ -1,7 +1,7 @@
 <template>
   <a class="linkbox" :href="'https://www.bilibili.com/read/cv' + card.id" target="_blank">
-    <div class="videocard">
-      <div class="videocard-cover">
+    <div class="columncard">
+      <div class="columncard-cover">
         <el-image
           v-for="(urls, index) in card.image_urls"
           :key="index"
@@ -11,7 +11,7 @@
           lazy
         />
       </div>
-      <div class="videocard-main">
+      <div class="columncard-main">
         <h4>
           {{ card.title }}
         </h4>
@@ -53,7 +53,7 @@ export default {
   word-break: break-all;
 }
 
-.videocard {
+.columncard {
   margin-top: 10px;
   border: 1px solid #E6E9EE;
   background: white;
@@ -95,7 +95,7 @@ export default {
     }
 
     p {
-      height: 38px;
+      max-height: 38px;
       margin:  0;
       padding: 0;
       font-size: 12px;
@@ -107,5 +107,22 @@ export default {
     }
   }
 
+}
+
+@media screen and (max-width: 538px) {
+  .columncard {
+    &-cover {
+      width: 100%;
+      height: 100%;
+      max-height: 518px;
+    }
+
+    &-main {
+        padding: 10px 20px 10px;
+      h4 {
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
 }
 </style>

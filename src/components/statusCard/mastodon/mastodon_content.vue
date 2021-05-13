@@ -26,7 +26,12 @@ export default {
 <style lang="less" scoped>
 .mastodon-content {
   color: black;
-  white-space: pre-line;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+
   ::v-deep(span) {
     color: #1b95e0;
     &:hover {
