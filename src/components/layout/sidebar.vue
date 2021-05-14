@@ -2,40 +2,37 @@
   <div class="sidebar">
     <SearchBox class="sidebar-search-box" />
     <MetaCoinStatus class="sidebar-meta-coin-status" :price="mtbtPrice" />
-    <RightBarLogIn class="sidebar-login" v-if="!isLoggedIn" />
+    <RightBarLogIn class="sidebar-login" v-if="!isLogged" />
     <TopWeeklyCreators class="sidebar-top-weekly-creators" />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 import SearchBox from '@/components/SearchBox'
 import MetaCoinStatus from '@/components/MetaCoinStatus'
 import TopWeeklyCreators from '@/components/TopWeeklyCreators'
 import RightBarLogIn from '@/components/RightBarLogIn'
-import { getMTBTPrice } from '../../contracts'
 
 export default {
   name: 'Sidebar',
   components: { TopWeeklyCreators, MetaCoinStatus, SearchBox, RightBarLogIn },
   data () {
     return {
-      searchValue: '',
-      mtbtPrice: 0
+      searchValue: ''
     }
   },
   computed: {
     ...mapState(['userInfo']),
-    isLoggedIn () {
-      return this.userInfo && this.userInfo.id !== -1
-    }
+    ...mapGetters(['isLogined', 'mtbtPrice'])
   },
   watch: {},
   async mounted () {
-    const price = await getMTBTPrice()
-    this.mtbtPrice = Number(price.toFixed(3))
+    await this.getMetaCoinData()
   },
-  methods: {}
+  methods: {
+    ...mapActions(['getMetaCoinData'])
+  }
 }
 </script>
 
