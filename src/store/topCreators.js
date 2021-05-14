@@ -1,4 +1,6 @@
+import { BigNumber } from 'ethers'
 import creators from '../constants/TopCreators'
+import { getPairContractByAddress, checkMTBTIsToken0, getMTBTPrice } from '../contracts'
 
 /**
  * @typedef CreatorInfo
@@ -26,7 +28,7 @@ const formatPrice = (data) => {
   if (!data) return []
   return data.map(c => ({
     ...c,
-    priceFormated: new Intl.NumberFormat('en-US', { minimumFractionDigits: 2 }).format(c.price)
+    priceFormated: new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(c.price)
   }))
 }
 
@@ -85,8 +87,34 @@ export const actions = {
    * @param { import('vuex').ActionContext<Array.<CreatorInfo>> } param0 - Action context
    */
   async updateCreatorData ({ commit }) {
+    /** @type {Array<CreatorInfo>} */
     const oldData = [...creators]
-    commit('setCreatorInfo', oldData)
-    console.log('TOPCREATORS ACTIONS::updateCreatorData', oldData)
+    const pendingNewData = oldData.map(async d => {
+      if (d.tokenAddress) {
+        const contract = getPairContractByAddress(d.tokenAddress)
+        const isToken0 = await checkMTBTIsToken0(contract)
+        const reserves = await contract.getReserves()
+        const decimals = await contract.decimals()
+        const mtbtPrice = await getMTBTPrice()
+        if (isToken0) {
+          const price = reserves._reserve0.div(BigNumber.from('10').pow(decimals)).toNumber() * mtbtPrice
+          return {
+            ...d,
+            price
+          }
+        } else {
+          const price = reserves._reserve1.div(BigNumber.from('10').pow(decimals)).toNumber() * mtbtPrice
+          return {
+            ...d,
+            price
+          }
+        }
+      } else {
+        return d
+      }
+    })
+    const newData = await Promise.all(pendingNewData)
+    commit('setCreatorInfo', newData)
+    console.log('TOPCREATORS ACTIONS::updateCreatorData', newData)
   }
 }
