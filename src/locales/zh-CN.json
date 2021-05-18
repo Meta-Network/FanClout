@@ -43,5 +43,7 @@
   "view": "查看",
   "your-browser-does-not-support-the-HTML5-video-tag": "您的浏览器不支持 HTML5 video 标签。",
   "people": "人",
-  "toot": "转嘟了"
+  "toot": "转嘟了",
+  "thisAccountIsVerified": "此账户已认领",
+  "thisAccountIsNotVerified": "此账户未认领"
 }
