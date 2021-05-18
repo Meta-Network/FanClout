@@ -43,5 +43,7 @@
   "view": "View",
   "your-browser-does-not-support-the-HTML5-video-tag": "Your browser does not support the HTML5 video tag.",
   "people": "people",
-  "toot": "toot"
+  "toot": "toot",
+  "thisAccountIsVerified": "This account is verified",
+  "thisAccountIsNotVerified": "This account is not verified"
 }
