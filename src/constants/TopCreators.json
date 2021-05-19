@@ -76,7 +76,7 @@
   {
     "name": "小島美奈子",
     "avatar": "https://pbs.twimg.com/profile_images/1363552631965184000/fRWXSo7g_400x400.jpg",
-    "price": 2390.00,
+    "price": 0.00,
     "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/MinakoOikawa",
@@ -89,6 +89,19 @@
         "domain": "https://hub.mtf.party",
         "username": "minakokojima"
       }
+    }
+  },
+  {
+    "name": "Zk Awen",
+    "avatar": "https://pbs.twimg.com/profile_images/1390447073598730241/PvqjvF5I_400x400.jpg",
+    "price": 0.00,
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "homepage": "https://twitter.com/Awen_crypto",
+    "tokenAddress": "0xcaDa39F2aC7631d0D63c0EcEC5590b4e40F8Da4C",
+    "pairAddress": "0xd815cEd91F93263887503C00b44589DC15212b94",
+    "verified": {
+      "twitter_name": "Awen_crypto"
     }
   },
   {
