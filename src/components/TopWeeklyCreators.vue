@@ -5,7 +5,7 @@
     </div>
     <div>
       <TopWeeklyCreatorItem
-        v-for="(creator, index) in topCreatorsSorted"
+        v-for="(creator, index) in creators"
         :key="index"
         :creator="creator"
         class="top-weekly-creators-item-container"
@@ -20,7 +20,10 @@ import TopWeeklyCreatorItem from '@/components/TopWeeklyCreatorItem'
 export default {
   components: { TopWeeklyCreatorItem },
   computed: {
-    ...mapGetters(['topCreatorsSorted'])
+    ...mapGetters(['topCreatorsSorted']),
+    creators () {
+      return this.topCreatorsSorted.slice(0, 10)
+    }
   },
   mounted () {
     this.updateCreatorData()

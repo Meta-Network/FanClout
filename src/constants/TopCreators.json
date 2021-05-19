@@ -1,27 +1,13 @@
 [
   {
-    "name": "岛岛",
-    "avatar": "https://pbs.twimg.com/profile_images/1363552631965184000/fRWXSo7g_200x200.jpg",
-    "price": 61068.74,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
-    "homepage": "https://twitter.com/MinakoOikawa",
-    "tokenAddress": "",
-    "verified": {
-      "twitter_name": "MinakoOikawa",
-      "bilibili_id": "285996",
-      "mastodon_uesr": {
-        "domain": "https://hub.mtf.party",
-        "username": "minakokojima"
-      }
-    }
-  },
-  {
     "name": "Li Jin",
     "avatar": "https://pbs.twimg.com/profile_images/1327121628485054466/q3nHrFYA_400x400.jpg",
     "price": 61068.74,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/ljin18",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": {
       "twitter_name": "ljin18",
       "bilibili_id": "",
@@ -32,9 +18,11 @@
     "name": "CZ 🔶 Binance",
     "avatar": "https://pbs.twimg.com/profile_images/1364121255264198661/ui7bhUAy_400x400.jpg",
     "price": 58122.92,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/cz_binance",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": {
       "twitter_name": "cz_binance",
       "bilibili_id": "",
@@ -45,45 +33,73 @@
     "name": "Calvin Chu",
     "avatar": "https://pbs.twimg.com/profile_images/925480010093174784/YF7pB6rY_400x400.jpg",
     "price": 41178.63,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/calchulus",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": null
   },
   {
     "name": "Dovey “Rug The Fiat” Wann🪐🦖",
     "avatar": "https://pbs.twimg.com/profile_images/1391134404936798209/BM5jyHQ1_400x400.jpg",
     "price": 38124.12,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/DoveyWan",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": null
   },
   {
     "name": "Hayden Adams 🦄",
     "avatar": "https://pbs.twimg.com/profile_images/1374416411741757440/6YuSPCph_400x400.jpg",
     "price": 45967.00,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/haydenzadams",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": null
   },
   {
     "name": "PenganZ",
     "avatar": "https://pbs.twimg.com/profile_images/1379773171356770308/tpMOTcUf_400x400.jpg",
     "price": 2390.00,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/pengan",
-    "tokenAddress": "0x7601095b617924969a2332324DfE6D65d249B794",
+    "tokenAddress": "0x11Ea65204989F4f29A98675C5d6aA5bD8ef2C499",
+    "pairAddress": "0x7601095b617924969a2332324DfE6D65d249B794",
     "verified": null
+  },
+  {
+    "name": "小島美奈子",
+    "avatar": "https://pbs.twimg.com/profile_images/1363552631965184000/fRWXSo7g_400x400.jpg",
+    "price": 2390.00,
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "homepage": "https://twitter.com/MinakoOikawa",
+    "tokenAddress": "0xFfAFfF7686F2d7Cc0e4727C5d30BD37b05708a1C",
+    "pairAddress": "0x0C36122Fab633A6bFDC5da534A02E7d685972bCc",
+    "verified": {
+      "twitter_name": "MinakoOikawa",
+      "bilibili_id": "285996",
+      "mastodon_uesr": {
+        "domain": "https://hub.mtf.party",
+        "username": "minakokojima"
+      }
+    }
   },
   {
     "name": "陈睿",
     "avatar": "https://i2.hdslb.com/bfs/app/8920e6741fc2808cce5b81bc27abdbda291655d3.png@128w_128h_1o.webp",
     "price": 21342.56,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://space.bilibili.com/208259",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": {
       "twitter_name": "",
       "bilibili_id": "208259",
@@ -94,9 +110,11 @@
     "name": "碧诗",
     "avatar": "https://i2.hdslb.com/bfs/face/ef0457addb24141e15dfac6fbf45293ccf1e32ab.jpg@128w_128h_1o.webp",
     "price": 36356.82,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://space.bilibili.com/2",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": {
       "twitter_name": "",
       "bilibili_id": "2",
@@ -107,18 +125,22 @@
     "name": "重播 RePop",
     "avatar": "https://i2.hdslb.com/bfs/face/6e8fc4bc48ee1ccd5a684286bdb398ab4f1ca148.jpg@128w_128h_1o.webp",
     "price": 37785.61,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://space.bilibili.com/405628673",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": null
   },
   {
     "name": "小辛不会弹 Solo",
     "avatar": "https://i2.hdslb.com/bfs/face/3e10e9e9bdf97a53c25f410f1a54d7b30e9af9b9.jpg@128w_128h_1o.webp",
     "price": 35562.96,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
+    "buyUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
+    "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://space.bilibili.com/1475759",
     "tokenAddress": "",
+    "pairAddress": "",
     "verified": null
   }
 ]
