@@ -4,6 +4,21 @@ import { getPairContractByAddress, checkMTBTIsToken0, getMTBTPrice } from '../co
 import { MTBT_TOKEN } from '../constants'
 
 /**
+ * @typedef MastodonInfo
+ * @type {object}
+ * @property {string} domain
+ * @property {string} username
+ */
+
+/**
+ * @typedef VerifiedInfo
+ * @type {object}
+ * @property {string} twitter_name
+ * @property {string} bilibili_id
+ * @property {?MastodonInfo} mastodon_uesr
+ */
+
+/**
  * @typedef CreatorInfo
  * @type {object}
  * @property {string} name - 名字
@@ -15,6 +30,7 @@ import { MTBT_TOKEN } from '../constants'
  * @property {string} tokenAddress - Token 地址
  * @property {string} pairAddress - Pair 地址
  * @property {string} homepage - 主页
+ * @property {?VerifiedInfo} verified - 认证信息
  */
 
 /**

@@ -1,21 +1,5 @@
 [
   {
-    "name": "岛岛",
-    "avatar": "https://pbs.twimg.com/profile_images/1363552631965184000/fRWXSo7g_200x200.jpg",
-    "price": 61068.74,
-    "buyUrl": "https://app.unisave.exchange/#/swap",
-    "homepage": "https://twitter.com/MinakoOikawa",
-    "tokenAddress": "",
-    "verified": {
-      "twitter_name": "MinakoOikawa",
-      "bilibili_id": "285996",
-      "mastodon_uesr": {
-        "domain": "https://hub.mtf.party",
-        "username": "minakokojima"
-      }
-    }
-  },
-  {
     "name": "Li Jin",
     "avatar": "https://pbs.twimg.com/profile_images/1327121628485054466/q3nHrFYA_400x400.jpg",
     "price": 61068.74,
@@ -97,7 +81,15 @@
     "sellUrl": "https://app.unisave.exchange/#/swap?inputCurrency=T0&outputCurrency=T1",
     "homepage": "https://twitter.com/MinakoOikawa",
     "tokenAddress": "0xFfAFfF7686F2d7Cc0e4727C5d30BD37b05708a1C",
-    "pairAddress": "0x0C36122Fab633A6bFDC5da534A02E7d685972bCc"
+    "pairAddress": "0x0C36122Fab633A6bFDC5da534A02E7d685972bCc",
+    "verified": {
+      "twitter_name": "MinakoOikawa",
+      "bilibili_id": "285996",
+      "mastodon_uesr": {
+        "domain": "https://hub.mtf.party",
+        "username": "minakokojima"
+      }
+    }
   },
   {
     "name": "陈睿",
