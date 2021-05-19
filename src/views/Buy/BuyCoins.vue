@@ -56,6 +56,20 @@
                   Buy
                 </el-button>
               </a>
+              <a
+                :href="scope.row.sellUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="buy-link"
+              >
+                <el-button
+                  size="small"
+                  type="primary"
+                  class="BuyButton sell-button"
+                >
+                  Sell
+                </el-button>
+              </a>
             </div>
           </template>
         </el-table-column>
@@ -145,12 +159,15 @@ export default {
   border-radius: 12px;
   text-decoration: none;
   margin-left: 5em;
+  &:hover{
+    color: #fff;
+    background-color: #004bd1;
+    border-color: #0047c4;
+    text-decoration: none;
+  }
 }
-.BuyButton:hover{
-  color: #fff;
-  background-color: #004bd1;
-  border-color: #0047c4;
-  text-decoration: none;
+.sell-button {
+  margin-left: 6px;
 }
 .table{
   @media screen and (max-width:600px) {

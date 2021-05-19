@@ -1,6 +1,7 @@
 import { BigNumber } from 'ethers'
 import creators from '../constants/TopCreators'
 import { getPairContractByAddress, checkMTBTIsToken0, getMTBTPrice } from '../contracts'
+import { MTBT_TOKEN } from '../constants'
 
 /**
  * @typedef CreatorInfo
@@ -9,7 +10,10 @@ import { getPairContractByAddress, checkMTBTIsToken0, getMTBTPrice } from '../co
  * @property {string} avatar - 头像
  * @property {number} price - 价格
  * @property {string} priceFormated - 格式化后的价格
+ * @property {string} buyUrl - 购买地址
+ * @property {string} sellUrl - 销售地址
  * @property {string} tokenAddress - Token 地址
+ * @property {string} pairAddress - Pair 地址
  * @property {string} homepage - 主页
  */
 
@@ -30,6 +34,21 @@ const formatPrice = (data) => {
     ...c,
     priceFormated: new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(c.price)
   }))
+}
+
+/**
+ * 创建销售 URL
+ * @param {string} url - URL 链接
+ * @param {string} token - 用户的 Token
+ * @param {string} mtbt - MTBT 的地址
+ */
+const createUrl = (url, token, mtbt = MTBT_TOKEN) => {
+  const buyUrl = url.replace('T0', mtbt).replace('T1', token)
+  const sellUrl = url.replace('T0', token).replace('T1', mtbt)
+  return {
+    buyUrl,
+    sellUrl
+  }
 }
 
 /**
@@ -88,10 +107,21 @@ export const actions = {
    */
   async updateCreatorData ({ commit }) {
     /** @type {Array<CreatorInfo>} */
-    const oldData = [...creators]
-    const pendingNewData = oldData.map(async d => {
+    const rawData = [...creators]
+    const oldData = rawData.map(d => {
       if (d.tokenAddress) {
-        const contract = getPairContractByAddress(d.tokenAddress)
+        const urls = createUrl(d.buyUrl, d.tokenAddress)
+        return {
+          ...d,
+          ...urls
+        }
+      } else {
+        return d
+      }
+    })
+    const pendingNewData = oldData.map(async d => {
+      if (d.pairAddress) {
+        const contract = getPairContractByAddress(d.pairAddress)
         const isToken0 = await checkMTBTIsToken0(contract)
         const reserves = await contract.getReserves()
         const decimals = await contract.decimals()
