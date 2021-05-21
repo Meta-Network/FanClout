@@ -2,7 +2,7 @@
   <div class="sidebar">
     <SearchBox class="sidebar-search-box" />
     <MetaCoinStatus class="sidebar-meta-coin-status" :price="mtbtPrice" />
-    <RightBarLogIn class="sidebar-login" v-if="!isLogged" />
+    <RightBarLogIn class="sidebar-login" v-if="!isLogined" />
     <TopWeeklyCreators class="sidebar-top-weekly-creators" />
   </div>
 </template>
