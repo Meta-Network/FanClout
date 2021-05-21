@@ -18,10 +18,10 @@
       <p>{{ $t("thisAccountIsNotVerified") }}</p>
     </div>
     <template #reference>
-      <span class="verified-status">
+      <div class="verified-status-icons">
         <i v-if="!isEmpty(verified)" class="el-icon-success" />
         <i v-else class="el-icon-remove-outline" />
-      </span>
+      </div>
     </template>
   </el-popover>
 </template>
@@ -57,13 +57,17 @@ export default {
     margin-top: 5px;
   }
 
-  .el-icon-success {
-    color: #005bff;
-    margin: 0 5px;
-  }
-  .el-icon-remove-outline {
-    margin: 0 5px;
-    color: #555;
+  &-icons {
+    display: flex;
+    align-items: center;
+    .el-icon-success {
+      color: #005bff;
+      margin: 0 5px;
+    }
+    .el-icon-remove-outline {
+      margin: 0 5px;
+      color: #555;
+    }
   }
 }
 </style>
