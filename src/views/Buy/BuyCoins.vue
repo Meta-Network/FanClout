@@ -30,6 +30,7 @@
               >
                 {{ scope.row.name }}
               </a>
+              <VerifiedStatus :verified="scope.row.verified || {}" />
             </div>
           </template>
         </el-table-column>
@@ -81,8 +82,12 @@
 <script>
 import { inject, onMounted, computed } from 'vue'
 import { useStore } from 'vuex'
+import VerifiedStatus from '@/components/VerifiedStatus'
 
 export default {
+  components: {
+    VerifiedStatus
+  },
   setup () {
     const setTitle = inject('setTitle')
     const setHideSidebar = inject('setHideSidebar')

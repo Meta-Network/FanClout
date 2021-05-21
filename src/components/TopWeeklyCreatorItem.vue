@@ -8,37 +8,18 @@
         <a :href="creator.homepage" target="_blank">
           <span class="top-weekly-creator-item-left-username">{{ creator.name }}</span>
         </a>
-        <!-- 认证标识 -->
-        <el-popover
-          placement="bottom"
-          width="200"
-          trigger="hover"
-        >
-          <!-- 此账户已认领 -->
-          <div v-if="creator.verified" class="verified-status">
-            <p>{{ $t('thisAccountIsVerified') }}</p>
-            <TopWeeklyCreatorItemVerified class="verified-status-platform" :card="creator.verified" />
-          </div>
-          <!-- 此账户未认领 -->
-          <div v-else class="verified-status">
-            <p>{{ $t('thisAccountIsNotVerified') }}</p>
-          </div>
-          <template #reference>
-            <i v-if="creator.verified" class="el-icon-success" />
-            <i v-else class="el-icon-remove-outline" />
-          </template>
-        </el-popover>
+        <VerifiedStatus :verified="creator.verified || {}" />
       </div>
       <span class="top-weekly-creator-item-right">~${{ creator.priceFormated }}</span>
     </a>
   </div>
 </template>
 <script>
-import TopWeeklyCreatorItemVerified from '@/components/TopWeeklyCreatorItemVerified'
+import VerifiedStatus from '@/components/VerifiedStatus'
 
 export default {
   components: {
-    TopWeeklyCreatorItemVerified
+    VerifiedStatus
   },
   props: {
     creator: {
@@ -81,29 +62,10 @@ a {
         text-decoration: underline;
       }
     }
-
-    .el-icon-success {
-      color: #005bff;
-      margin: 0 5px;
-    }
-    .el-icon-remove-outline {
-      margin: 0 5px;
-      color: #555;
-    }
   }
 
   &:hover {
     color: black;
-  }
-}
-
-.verified-status {
-  p {
-    margin: 0;
-  }
-
-  &-platform {
-    margin-top: 5px;
   }
 }
 </style>

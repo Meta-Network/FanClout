@@ -19,3 +19,5 @@ export function disassembleJWT (token) {
   tokenPayload = tokenPayload.substring(0, tokenPayload.indexOf('.'))
   return JSON.parse(atob(tokenPayload))
 }
+
+export const isEmpty = obj => [Object, Array].includes((obj || {}).constructor) && !Object.entries((obj || {})).length
